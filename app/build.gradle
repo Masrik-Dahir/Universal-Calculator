@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+def versionStart = '1.0'
+
+def static getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyy-MM-dd')
+    return formattedDate
+}
+
+android {
+    compileSdkVersion 31
+
+    defaultConfig {
+        applicationId "com.defianttech.convertme"
+        minSdkVersion 14
+        targetSdkVersion 31
+        versionCode 45
+        versionName "${versionStart}-${date}"
+        vectorDrawables.useSupportLibrary = true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt')
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+
+    implementation "com.google.android.material:material:1.4.0"
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.1'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    androidTestImplementation 'junit:junit:4.13.2'
+    androidTestImplementation "androidx.annotation:annotation:1.2.0"
+    androidTestImplementation "androidx.test:rules:1.4.0"
+    androidTestImplementation "androidx.test:runner:1.4.0"
+    androidTestImplementation 'org.hamcrest:hamcrest-library:2.2'
+}
+repositories {
+    mavenCentral()
+}

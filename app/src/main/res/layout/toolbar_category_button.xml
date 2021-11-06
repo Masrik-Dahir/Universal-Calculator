@@ -1,0 +1,56 @@
+<RelativeLayout
+    android:id="@+id/category_toolbar_container"
+    android:clickable="true"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#63666A"
+        tools:context=".MainActivity">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/category_text"
+            app:srcCompat="@drawable/ic_arrow_drop_down_white_24dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="-2dp" />
+
+        <TextView
+            android:id="@+id/category_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/units_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:text="Category" />
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:contentDescription="@null"
+            app:layout_constraintEnd_toStartOf="@+id/category_text"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_arrow_drop_down_white_24dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="-2dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>
