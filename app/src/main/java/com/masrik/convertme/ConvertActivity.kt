@@ -1,4 +1,4 @@
-package com.defianttech.convertme
+package com.masrik.convertme
 
 import android.content.*
 import android.graphics.Color
@@ -18,8 +18,8 @@ import androidx.appcompat.view.ActionMode
 import androidx.appcompat.widget.PopupMenu
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
-import com.defianttech.convertme.NumberPadView.OnValueChangedListener
-import com.defianttech.convertme.databinding.ConvertmeBinding
+import com.masrik.convertme.NumberPadView.OnValueChangedListener
+import com.masrik.convertme.databinding.ConvertmeBinding
 import java.text.DecimalFormat
 import kotlin.math.abs
 
@@ -49,15 +49,18 @@ class ConvertActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
 //        binding.toolbarContents.categoryToolbarContainer.setOnClickListener { categoryMenu.show() }
-        categoryMenu = PopupMenu(this@ConvertActivity, binding.toolbarContents.categoryToolbarContainer)
+        categoryMenu =
+            PopupMenu(this@ConvertActivity, binding.toolbarContents.categoryToolbarContainer)
 
         for ((i, name) in allCategoryNames.withIndex()) {
             categoryMenu.menu.add(0, i, 0, name)
         }
 
         categoryMenu.setOnMenuItemClickListener { item ->
-            currentCategory = UnitCollection.collectionIndexByName(collections,
-                    allCategoryNames[item.itemId])
+            currentCategory = UnitCollection.collectionIndexByName(
+                collections,
+                allCategoryNames[item.itemId]
+            )
             if (currentUnitIndex >= collections[currentCategory].length()) {
                 currentUnitIndex = 0
             }
@@ -70,20 +73,21 @@ class ConvertActivity : AppCompatActivity() {
         binding.unitsList.onItemClickListener = OnItemClickListener { _, _, position, _ ->
             if (editModeEnabled) {
                 collections[currentCategory][position]
-                        .isEnabled = !collections[currentCategory][position].isEnabled
+                    .isEnabled = !collections[currentCategory][position].isEnabled
             } else {
                 currentUnitIndex = position
             }
             listAdapter.notifyDataSetChanged()
         }
 
-        binding.unitsList.onItemLongClickListener = OnItemLongClickListener { _, view, position, _ ->
-            if (editModeEnabled) {
-                return@OnItemLongClickListener false
+        binding.unitsList.onItemLongClickListener =
+            OnItemLongClickListener { _, view, position, _ ->
+                if (editModeEnabled) {
+                    return@OnItemLongClickListener false
+                }
+                doLongPressMenu(view.findViewById(R.id.unitValue), position)
+                true
             }
-            doLongPressMenu(view.findViewById(R.id.unitValue), position)
-            true
-        }
 
         binding.numberPad.valueChangedListener = object : OnValueChangedListener {
             override fun onValueChanged(value: String) {
@@ -278,8 +282,12 @@ class ConvertActivity : AppCompatActivity() {
                 if (position == currentUnitIndex) {
                     binding.unitsList.setItemChecked(position, true)
                 }
-                itemContainer.setBackgroundColor(ContextCompat.getColor(this@ConvertActivity,
-                        android.R.color.transparent))
+                itemContainer.setBackgroundColor(
+                    ContextCompat.getColor(
+                        this@ConvertActivity,
+                        android.R.color.transparent
+                    )
+                )
                 chkEnable.setImageResource(if (collections[currentCategory][position].isEnabled) R.drawable.ic_check_box_white_24dp else R.drawable.ic_check_box_outline_blank_white_24dp)
             } else {
                 if (collections[currentCategory][position].isEnabled) {
@@ -296,15 +304,22 @@ class ConvertActivity : AppCompatActivity() {
                     if (position == currentUnitIndex) {
                         binding.unitsList.setItemChecked(position, true)
                     }
-                    ViewCompat.setBackground(itemContainer,
-                            ContextCompat.getDrawable(this@ConvertActivity,
-                                    R.drawable.selectable_item_background))
-                    val p = UnitCollection.convert(this@ConvertActivity, currentCategory,
-                            currentUnitIndex, position, currentValue)
+                    ViewCompat.setBackground(
+                        itemContainer,
+                        ContextCompat.getDrawable(
+                            this@ConvertActivity,
+                            R.drawable.selectable_item_background
+                        )
+                    )
+                    val p = UnitCollection.convert(
+                        this@ConvertActivity, currentCategory,
+                        currentUnitIndex, position, currentValue
+                    )
                     unitValue.text = getFormattedValueStr(p)
                 } else {
                     if (convertView == null) {
-                        val params = AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0)
+                        val params =
+                            AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 0)
                         convertView = View(this@ConvertActivity)
                         convertView.layoutParams = params
                     }
@@ -321,15 +336,36 @@ class ConvertActivity : AppCompatActivity() {
             val resultStr: String
             when (menuItem.itemId) {
                 R.id.menu_copy_value -> {
-                    resultStr = String.format("%1\$s", getValueStr(UnitCollection.convert(this@ConvertActivity, currentCategory, currentUnitIndex, position, currentValue)))
+                    resultStr = String.format(
+                        "%1\$s",
+                        getValueStr(
+                            UnitCollection.convert(
+                                this@ConvertActivity,
+                                currentCategory,
+                                currentUnitIndex,
+                                position,
+                                currentValue
+                            )
+                        )
+                    )
                     setClipboardText(resultStr)
                     return@OnMenuItemClickListener true
                 }
                 R.id.menu_copy_row -> {
-                    resultStr = String.format("%1\$s %2\$s = %3\$s %4\$s", getValueStr(currentValue),
-                            collections[currentCategory][currentUnitIndex].name,
-                            getValueStr(UnitCollection.convert(this@ConvertActivity, currentCategory, currentUnitIndex, position, currentValue)),
-                            collections[currentCategory][position].name)
+                    resultStr = String.format(
+                        "%1\$s %2\$s = %3\$s %4\$s", getValueStr(currentValue),
+                        collections[currentCategory][currentUnitIndex].name,
+                        getValueStr(
+                            UnitCollection.convert(
+                                this@ConvertActivity,
+                                currentCategory,
+                                currentUnitIndex,
+                                position,
+                                currentValue
+                            )
+                        ),
+                        collections[currentCategory][position].name
+                    )
                     setClipboardText(resultStr)
                     return@OnMenuItemClickListener true
                 }
@@ -342,16 +378,17 @@ class ConvertActivity : AppCompatActivity() {
     private fun setClipboardText(text: String) {
         val clipboard = getSystemService(CLIPBOARD_SERVICE) as ClipboardManager
         clipboard.setPrimaryClip(ClipData.newPlainText("", text))
-        Toast.makeText(this@ConvertActivity, R.string.menu_clipboard_copied, Toast.LENGTH_SHORT).show()
+        Toast.makeText(this@ConvertActivity, R.string.menu_clipboard_copied, Toast.LENGTH_SHORT)
+            .show()
     }
 
     private fun showAboutDialog() {
         AlertDialog.Builder(this)
-                .setTitle(getString(R.string.menu_about))
-                .setMessage(getString(R.string.about_message))
-                .setPositiveButton(R.string.ok, null)
-                .create()
-                .show()
+            .setTitle(getString(R.string.menu_about))
+            .setMessage(getString(R.string.about_message))
+            .setPositiveButton(R.string.ok, null)
+            .create()
+            .show()
     }
 
     companion object {

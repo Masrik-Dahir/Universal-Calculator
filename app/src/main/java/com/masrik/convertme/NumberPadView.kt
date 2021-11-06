@@ -1,4 +1,4 @@
-package com.defianttech.convertme
+package com.masrik.convertme
 
 import android.content.Context
 import android.util.AttributeSet
@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.defianttech.convertme.databinding.NumberPadViewBinding
+import com.masrik.convertme.databinding.NumberPadViewBinding
 
-class NumberPadView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyle: Int = 0)
-    : ConstraintLayout(context, attrs, defStyle), View.OnClickListener {
+class NumberPadView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyle: Int = 0
+) : ConstraintLayout(context, attrs, defStyle), View.OnClickListener {
 
     interface OnValueChangedListener {
         fun onValueChanged(value: String)
@@ -63,9 +66,15 @@ class NumberPadView @JvmOverloads constructor(context: Context, attrs: Attribute
             }
         } else {
             when (curVal) {
-                "0" -> { curVal = str }
-                "-0" -> { curVal = "-$str" }
-                else -> { curVal += str }
+                "0" -> {
+                    curVal = str
+                }
+                "-0" -> {
+                    curVal = "-$str"
+                }
+                else -> {
+                    curVal += str
+                }
             }
         }
         currentValue = curVal

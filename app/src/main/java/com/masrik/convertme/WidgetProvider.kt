@@ -1,4 +1,4 @@
-package com.defianttech.convertme
+package com.masrik.convertme
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -12,7 +12,11 @@ import android.widget.RemoteViews
 
 class WidgetProvider : AppWidgetProvider() {
 
-    override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
+    override fun onUpdate(
+        context: Context,
+        appWidgetManager: AppWidgetManager,
+        appWidgetIds: IntArray
+    ) {
         val thisWidget = ComponentName(context, WidgetProvider::class.java)
         val allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget)
         val collections = UnitCollection.getInstance(context)
@@ -21,9 +25,18 @@ class WidgetProvider : AppWidgetProvider() {
             Log.d(TAG, "Updating widget ID $widgetId")
 
             val remoteViews = RemoteViews(context.packageName, R.layout.widget_convert_units)
-            remoteViews.setOnClickPendingIntent(R.id.widget_unit_plus, getSelfPendingIntent(context, widgetId, CLICK_ACTION_PLUS))
-            remoteViews.setOnClickPendingIntent(R.id.widget_unit_minus, getSelfPendingIntent(context, widgetId, CLICK_ACTION_MINUS))
-            remoteViews.setOnClickPendingIntent(R.id.widget_unit_container, getSelfPendingIntent(context, widgetId, CLICK_ACTION_EXCHANGE))
+            remoteViews.setOnClickPendingIntent(
+                R.id.widget_unit_plus,
+                getSelfPendingIntent(context, widgetId, CLICK_ACTION_PLUS)
+            )
+            remoteViews.setOnClickPendingIntent(
+                R.id.widget_unit_minus,
+                getSelfPendingIntent(context, widgetId, CLICK_ACTION_MINUS)
+            )
+            remoteViews.setOnClickPendingIntent(
+                R.id.widget_unit_container,
+                getSelfPendingIntent(context, widgetId, CLICK_ACTION_EXCHANGE)
+            )
 
             val configIntent = Intent(context, WidgetSetupActivity::class.java)
             configIntent.action = CLICK_ACTION_SETTINGS + "_" + widgetId
@@ -41,13 +54,30 @@ class WidgetProvider : AppWidgetProvider() {
             if (prefs.currentToIndex < 0 || prefs.currentToIndex > collections[prefs.currentCategory].length()) {
                 prefs.currentToIndex = UnitCollection.DEFAULT_TO_INDEX
             }
-            remoteViews.setTextViewText(R.id.widget_unit_from,
-                    Html.fromHtml(collections[prefs.currentCategory][prefs.currentFromIndex].name))
-            remoteViews.setTextViewText(R.id.widget_unit_to,
-                    Html.fromHtml(collections[prefs.currentCategory][prefs.currentToIndex].name))
-            remoteViews.setTextViewText(R.id.widget_unit_from_value, ConvertActivity.getFormattedValueStr(prefs.currentValue.toDouble()))
-            remoteViews.setTextViewText(R.id.widget_unit_to_value,
-                    ConvertActivity.getFormattedValueStr(UnitCollection.convert(context, prefs.currentCategory, prefs.currentFromIndex, prefs.currentToIndex, prefs.currentValue.toDouble())))
+            remoteViews.setTextViewText(
+                R.id.widget_unit_from,
+                Html.fromHtml(collections[prefs.currentCategory][prefs.currentFromIndex].name)
+            )
+            remoteViews.setTextViewText(
+                R.id.widget_unit_to,
+                Html.fromHtml(collections[prefs.currentCategory][prefs.currentToIndex].name)
+            )
+            remoteViews.setTextViewText(
+                R.id.widget_unit_from_value,
+                ConvertActivity.getFormattedValueStr(prefs.currentValue.toDouble())
+            )
+            remoteViews.setTextViewText(
+                R.id.widget_unit_to_value,
+                ConvertActivity.getFormattedValueStr(
+                    UnitCollection.convert(
+                        context,
+                        prefs.currentCategory,
+                        prefs.currentFromIndex,
+                        prefs.currentToIndex,
+                        prefs.currentValue.toDouble()
+                    )
+                )
+            )
 
             appWidgetManager.updateAppWidget(widgetId, remoteViews)
         }
@@ -78,7 +108,11 @@ class WidgetProvider : AppWidgetProvider() {
         }
     }
 
-    private fun getSelfPendingIntent(context: Context, widgetId: Int, action: String): PendingIntent {
+    private fun getSelfPendingIntent(
+        context: Context,
+        widgetId: Int,
+        action: String
+    ): PendingIntent {
         val intent = Intent(context, WidgetProvider::class.java)
         intent.action = action + "_" + widgetId
         return PendingIntent.getBroadcast(context, 0, intent, 0)

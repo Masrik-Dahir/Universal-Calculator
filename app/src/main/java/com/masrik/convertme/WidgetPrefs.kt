@@ -1,4 +1,4 @@
-package com.defianttech.convertme
+package com.masrik.convertme
 
 import android.appwidget.AppWidgetManager
 import android.content.Context

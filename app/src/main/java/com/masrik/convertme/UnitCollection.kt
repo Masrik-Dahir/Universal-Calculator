@@ -1,15 +1,17 @@
-package com.defianttech.convertme
+package com.masrik.convertme
 
 import android.content.Context
 import android.util.Log
-import com.google.gson.Gson
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
 import java.io.InputStreamReader
 import java.util.*
 
-class UnitCollection internal constructor(val names: Array<String>, val items: MutableList<SingleUnit>) {
+class UnitCollection internal constructor(
+    val names: Array<String>,
+    val items: MutableList<SingleUnit>
+) {
     operator fun get(index: Int): SingleUnit {
         return items[index]
     }
@@ -65,7 +67,13 @@ class UnitCollection internal constructor(val names: Array<String>, val items: M
             return 0
         }
 
-        fun convert(context: Context, category: Int, fromIndex: Int, toIndex: Int, value: Double): Double {
+        fun convert(
+            context: Context,
+            category: Int,
+            fromIndex: Int,
+            toIndex: Int,
+            value: Double
+        ): Double {
             val collections = getInstance(context)
             var result = ((value - collections[category][fromIndex].offset)
                     / collections[category][fromIndex].multiplier)
@@ -91,12 +99,20 @@ class UnitCollection internal constructor(val names: Array<String>, val items: M
                     }
                     if (line.startsWith("==")) {
                         currentCollection = mutableListOf()
-                        lineArr = line.replace("==", "").trim().split("\\s*,\\s*".toRegex()).toTypedArray()
+                        lineArr = line.replace("==", "").trim().split("\\s*,\\s*".toRegex())
+                            .toTypedArray()
                         collections.add(UnitCollection(lineArr, currentCollection))
                         continue
                     }
                     lineArr = line.split("\\s*,\\s*".toRegex()).toTypedArray()
-                    currentCollection.add(SingleUnit(lineArr[0].toInt(), lineArr[1], lineArr[2].toDouble(), lineArr[3].toDouble()))
+                    currentCollection.add(
+                        SingleUnit(
+                            lineArr[0].toInt(),
+                            lineArr[1],
+                            lineArr[2].toDouble(),
+                            lineArr[3].toDouble()
+                        )
+                    )
                 }
             } catch (e: IOException) {
                 Log.e(TAG, "Failed to read unit collection.", e)
@@ -114,14 +130,6 @@ class UnitCollection internal constructor(val names: Array<String>, val items: M
 
             return collections.toTypedArray()
         }
-
-
-
-
-
-
-
-
 
 
     }

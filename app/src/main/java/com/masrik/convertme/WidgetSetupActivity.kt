@@ -1,13 +1,13 @@
-package com.defianttech.convertme
+package com.masrik.convertme
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import com.defianttech.convertme.databinding.WidgetSetupActivityBinding
+import androidx.appcompat.app.AppCompatActivity
+import com.masrik.convertme.databinding.WidgetSetupActivityBinding
 
 class WidgetSetupActivity : AppCompatActivity() {
     private lateinit var binding: WidgetSetupActivityBinding
@@ -39,21 +39,28 @@ class WidgetSetupActivity : AppCompatActivity() {
         val categoryAdapter = ArrayAdapter(this, R.layout.unit_categoryitem, allCategoryNames)
 
         binding.unitCategorySpinner.adapter = categoryAdapter
-        binding.unitCategorySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(adapterView: AdapterView<*>, view: View, i: Int, l: Long) {
-                prefs.currentCategory = UnitCollection.collectionIndexByName(collections, allCategoryNames[i])
-                if (prefs.currentFromIndex > collections[prefs.currentCategory].length()) {
-                    prefs.currentFromIndex = 0
+        binding.unitCategorySpinner.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    adapterView: AdapterView<*>,
+                    view: View,
+                    i: Int,
+                    l: Long
+                ) {
+                    prefs.currentCategory =
+                        UnitCollection.collectionIndexByName(collections, allCategoryNames[i])
+                    if (prefs.currentFromIndex > collections[prefs.currentCategory].length()) {
+                        prefs.currentFromIndex = 0
+                    }
+                    if (prefs.currentToIndex > collections[prefs.currentCategory].length()) {
+                        prefs.currentToIndex = 0
+                    }
+                    setUnitSpinners(prefs.currentCategory)
+                    prefs.save(this@WidgetSetupActivity)
                 }
-                if (prefs.currentToIndex > collections[prefs.currentCategory].length()) {
-                    prefs.currentToIndex = 0
-                }
-                setUnitSpinners(prefs.currentCategory)
-                prefs.save(this@WidgetSetupActivity)
-            }
 
-            override fun onNothingSelected(adapterView: AdapterView<*>) {}
-        }
+                override fun onNothingSelected(adapterView: AdapterView<*>) {}
+            }
 
         for (i in allCategoryNames.indices) {
             if (allCategoryNames[i] == collections[prefs.currentCategory].names[0]) {
@@ -61,14 +68,20 @@ class WidgetSetupActivity : AppCompatActivity() {
             }
         }
 
-        binding.unitFromSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(adapterView: AdapterView<*>, view: View, i: Int, l: Long) {
-                prefs.currentFromIndex = i
-                prefs.save(this@WidgetSetupActivity)
-            }
+        binding.unitFromSpinner.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    adapterView: AdapterView<*>,
+                    view: View,
+                    i: Int,
+                    l: Long
+                ) {
+                    prefs.currentFromIndex = i
+                    prefs.save(this@WidgetSetupActivity)
+                }
 
-            override fun onNothingSelected(adapterView: AdapterView<*>) {}
-        }
+                override fun onNothingSelected(adapterView: AdapterView<*>) {}
+            }
 
         binding.unitToSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(adapterView: AdapterView<*>, view: View, i: Int, l: Long) {
@@ -111,10 +124,12 @@ class WidgetSetupActivity : AppCompatActivity() {
     }
 
     private fun setUnitSpinners(category: Int) {
-        binding.unitFromSpinner.adapter = ArrayAdapter(this, R.layout.unit_categoryitem, collections[category].items)
+        binding.unitFromSpinner.adapter =
+            ArrayAdapter(this, R.layout.unit_categoryitem, collections[category].items)
         binding.unitFromSpinner.setSelection(prefs.currentFromIndex)
 
-        binding.unitToSpinner.adapter = ArrayAdapter(this, R.layout.unit_categoryitem, collections[category].items)
+        binding.unitToSpinner.adapter =
+            ArrayAdapter(this, R.layout.unit_categoryitem, collections[category].items)
         binding.unitToSpinner.setSelection(prefs.currentToIndex)
     }
 }
