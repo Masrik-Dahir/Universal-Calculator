@@ -10,6 +10,9 @@ def static getDate() {
 }
 
 android {
+    dataBinding {
+        enabled = true
+    }
     compileSdkVersion 31
 
     defaultConfig {

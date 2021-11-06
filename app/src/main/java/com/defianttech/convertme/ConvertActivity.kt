@@ -48,7 +48,7 @@ class ConvertActivity : AppCompatActivity() {
 //        setSupportActionBar(binding.mainToolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
 
-        binding.toolbarContents.categoryToolbarContainer.setOnClickListener { categoryMenu.show() }
+//        binding.toolbarContents.categoryToolbarContainer.setOnClickListener { categoryMenu.show() }
         categoryMenu = PopupMenu(this@ConvertActivity, binding.toolbarContents.categoryToolbarContainer)
 
         for ((i, name) in allCategoryNames.withIndex()) {
@@ -100,7 +100,10 @@ class ConvertActivity : AppCompatActivity() {
             }
         }
 
-//        binding.fabEdit.setOnClickListener { startSupportActionMode(EditUnitsActionModeCallback()) }
+        binding.fabEdit.setOnClickListener(View.OnClickListener { view ->
+            val myIntent = Intent(view.context, Scroll::class.java)
+            startActivityForResult(myIntent, 0)
+        })
     }
 
     public override fun onStop() {

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scroll_relative"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    android:background="#000"
+    tools:context=".Scroll">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#000"
+        android:fillViewport="false">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background="#000"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/basic_calculator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="#262626"
+                android:text="Basic Calculator"
+                android:textColor="#ffff"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/scientific_calculator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="#262626"
+                android:text="Scientific Calculator"
+                android:textColor="#ffff"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/unit_converter"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="#262626"
+                android:text="Unit Converter"
+                android:textColor="#ffff"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/binary_calculator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="#262626"
+                android:text="Binary Calculator"
+                android:textColor="#ffff"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/hexadecimal_calculator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:background="#262626"
+                android:text="Hexadec Calculator"
+                android:textColor="#ffff"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/exit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="#262626"
+                android:text="Back"
+                android:textColor="#ffff"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>
