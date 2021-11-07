@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#63666A"
-        tools:context=".MainActivity">
+        tools:context=".ConvertActivity">
 
         <ImageView
             android:layout_width="24dp"

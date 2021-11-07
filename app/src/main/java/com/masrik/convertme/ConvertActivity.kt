@@ -46,9 +46,9 @@ class ConvertActivity : AppCompatActivity() {
         resetLists()
 
 //        setSupportActionBar(binding.mainToolbar)
-        supportActionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar?.setDisplayShowTitleEnabled(true)
 
-//        binding.toolbarContents.categoryToolbarContainer.setOnClickListener { categoryMenu.show() }
+        binding.toolbarContents.categoryToolbarContainer.setOnClickListener { categoryMenu.show() }
         categoryMenu =
             PopupMenu(this@ConvertActivity, binding.toolbarContents.categoryToolbarContainer)
 
@@ -127,10 +127,10 @@ class ConvertActivity : AppCompatActivity() {
                 onBackPressed()
                 return true
             }
-            R.id.menu_about -> {
-                showAboutDialog()
-                return true
-            }
+//            R.id.menu_about -> {
+//                showAboutDialog()
+//                return true
+//            }
 
         }
         return false
@@ -385,7 +385,6 @@ class ConvertActivity : AppCompatActivity() {
     private fun showAboutDialog() {
         AlertDialog.Builder(this)
             .setTitle(getString(R.string.menu_about))
-            .setMessage(getString(R.string.about_message))
             .setPositiveButton(R.string.ok, null)
             .create()
             .show()

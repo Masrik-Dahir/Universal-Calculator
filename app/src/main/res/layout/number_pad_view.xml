@@ -11,11 +11,11 @@
 
     <TextView
         android:id="@+id/btn1"
-        style="button"
+        style="@style/ButtonTextView"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
         android:layout_marginTop="6dp"
         android:background="@drawable/circle_button"
         android:text="@string/str_1"
@@ -116,6 +116,7 @@
         android:layout_marginStart="220dp"
         android:layout_marginLeft="220dp"
         android:layout_marginTop="@dimen/button_margin"
+        android:layout_marginBottom="6dp"
         android:background="@drawable/button"
         android:text="+/-"
         android:textColor="#000"
@@ -130,6 +131,7 @@
         style="@style/ButtonTextView"
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginBottom="6dp"
         android:background="@drawable/circle_button"
         android:text="@string/str_0"
         app:layout_constraintStart_toStartOf="@id/btn8"
@@ -142,6 +144,7 @@
         android:layout_height="60dp"
         android:background="@drawable/circle_button"
         android:text="@string/str_pad_point"
+
         app:layout_constraintStart_toStartOf="@id/btn9"
         app:layout_constraintTop_toTopOf="@id/btn0" />
 

@@ -57,8 +57,7 @@
     <string name="str_pad_back">←</string>
 
     <string name="launcher_title">Universal Calculator</string>
-    <string name="widget_title">Convert Units</string>
-    <string name="about_message">ConvertMe — An easy-to-use unit conversion utility.\n\nCopyright © 2010–2021 Defiant Technologies, LLC.\n\Created by Dmitry Brant.</string>
+    <string name="widget_title">Universal Calculator</string>
 
     <string name="configure_widget">Configure widget</string>
     <string name="unit_category">Unit category:</string>
@@ -75,13 +74,12 @@
     <string name="preview">Preview</string>
     <string name="inverse">Inverse</string>
     <string name="nice_try">Nice try!</string>
-    <string name="delete_unit_confirm">Are you sure you want to delete \"%s\"?</string>
-    <string name="delete_unit_dependent">\"%s\" cannot be deleted because other units depend on it (%s).</string>
     <string name="custom_unit_name">Name of unit</string>
     <string name="custom_unit_name_invalid">Invalid name (must be non-empty)</string>
     <string name="custom_unit_base">Base unit:</string>
     <string name="custom_unit_multiplier">Multiplier</string>
     <string name="custom_unit_multiplier_invalid">Invalid multiplier (must be a nonzero decimal number)</string>
     <string name="custom_unit_multiplier_default">1.0</string>
+
 
 </resources>

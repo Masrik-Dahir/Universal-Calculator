@@ -10,16 +10,16 @@
     android:background="#000"
     tools:context=".Scroll">
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="#000"
         android:fillViewport="false">
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="30dp"
             android:background="#000"
             android:orientation="vertical">
 
@@ -28,10 +28,10 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="20dp"
-                android:background="#262626"
-                android:text="Basic Calculator"
-                android:textColor="#ffff"
+                android:layout_margin="10dp"
+                android:background="@drawable/button"
+                android:text="Basic"
+                android:textColor="#000"
                 android:textSize="30sp" />
 
             <Button
@@ -39,10 +39,11 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_margin="10dp"
                 android:layout_marginTop="20dp"
-                android:background="#262626"
-                android:text="Scientific Calculator"
-                android:textColor="#ffff"
+                android:background="@drawable/button"
+                android:text="Scientific"
+                android:textColor="#000"
                 android:textSize="30sp" />
 
             <Button
@@ -50,10 +51,11 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_margin="10dp"
                 android:layout_marginTop="20dp"
-                android:background="#262626"
+                android:background="@drawable/button"
                 android:text="Unit Converter"
-                android:textColor="#ffff"
+                android:textColor="#000"
                 android:textSize="30sp" />
 
             <Button
@@ -61,10 +63,11 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_margin="10dp"
                 android:layout_marginTop="20dp"
-                android:background="#262626"
-                android:text="Binary Calculator"
-                android:textColor="#ffff"
+                android:background="@drawable/button"
+                android:text="Binary"
+                android:textColor="#000"
                 android:textSize="30sp" />
 
             <Button
@@ -72,10 +75,11 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_margin="10dp"
                 android:layout_marginTop="20dp"
-                android:background="#262626"
-                android:text="Hexadec Calculator"
-                android:textColor="#ffff"
+                android:background="@drawable/button"
+                android:text="Hexadecimal"
+                android:textColor="#000"
                 android:textSize="30sp" />
 
             <Button
