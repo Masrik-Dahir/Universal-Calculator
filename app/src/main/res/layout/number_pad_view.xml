@@ -11,7 +11,7 @@
 
     <TextView
         android:id="@+id/btn1"
-        style="@style/ButtonTextView"
+        style="button"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginStart="6dp"

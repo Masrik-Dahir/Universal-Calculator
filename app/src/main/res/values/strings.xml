@@ -56,7 +56,7 @@
     <string name="str_pad_negate">±</string>
     <string name="str_pad_back">←</string>
 
-    <string name="launcher_title">Convert Units</string>
+    <string name="launcher_title">Universal Calculator</string>
     <string name="widget_title">Convert Units</string>
     <string name="about_message">ConvertMe — An easy-to-use unit conversion utility.\n\nCopyright © 2010–2021 Defiant Technologies, LLC.\n\Created by Dmitry Brant.</string>
 
