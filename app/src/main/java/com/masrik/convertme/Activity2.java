@@ -32,7 +32,7 @@ public class Activity2 extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        setTitle("Scientific Calculator");
         output = findViewById(R.id.output);
         input = findViewById(R.id.input);
         zero = findViewById(R.id.zero);

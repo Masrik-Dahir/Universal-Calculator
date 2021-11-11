@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class Binary extends AppCompatActivity {
     private final char ADDITION = '+';
     private final char SUBTRACTION = '-';
     private final char MULTIPLICATION = '*';
@@ -20,20 +20,30 @@ public class MainActivity extends AppCompatActivity {
     private final char EQU = '=';
     private final char EXTRA = '@';
     private final char MODULUS = '%';
+    private final char RIGHT_SHIFT = '>';
+    private final char LEFT_SHIFT = '<';
+    private final char NOT = '~';
+    private final char AND = '&';
+    private final char OR = '|';
+    private final char XOR = '?';
+    boolean negetive = false;
+
     private Button b1;
-    private Button b2;
-    private Button b3;
-    private Button b4;
-    private Button b5;
-    private Button b6;
-    private Button b7;
-    private Button b8;
-    private Button b9;
     private Button b0;
     private Button b_equal;
     private Button b_multi;
     private Button b_divide;
     private Button b_add;
+    private Button r_shift;
+    private Button l_shift;
+    private Button to_dec;
+    private Button to_hex;
+    private Button b_not;
+    private Button b_and;
+    private Button b_or;
+    private Button b_xor;
+
+
     private Button b_sub;
     private Button b_clear;
     private Button b_dot;
@@ -45,15 +55,15 @@ public class MainActivity extends AppCompatActivity {
     private char ACTION;
     private double val1 = Double.NaN;
     private double val2;
-    double asd = val1;
-    boolean negetive = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTitle("Basic Calculator");
-        setContentView(R.layout.activity_main_2);
+        setContentView(R.layout.activity_binary);
         viewSetup();
+
+        setTitle("Binary Calculator");
 
         t1.setTextIsSelectable(true);
         t2.setTextIsSelectable(true);
@@ -91,121 +101,9 @@ public class MainActivity extends AppCompatActivity {
                     t1.setText(t1.getText().toString() + "-1");
                     negetive = false;
                 }
-
             }
         });
 
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ifErrorOnOutput();
-                exceedLength();
-                if (negetive == false) {
-                    t1.setText(t1.getText().toString() + "2");
-                } else {
-                    t1.setText(t1.getText().toString() + "-2");
-                    negetive = false;
-                }
-            }
-        });
-
-        b3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ifErrorOnOutput();
-                exceedLength();
-                if (negetive == false) {
-                    t1.setText(t1.getText().toString() + "3");
-                } else {
-                    t1.setText(t1.getText().toString() + "-3");
-                    negetive = false;
-                }
-            }
-        });
-
-        b4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ifErrorOnOutput();
-                exceedLength();
-                if (negetive == false) {
-                    t1.setText(t1.getText().toString() + "4");
-                } else {
-                    t1.setText(t1.getText().toString() + "-4");
-                    negetive = false;
-                }
-            }
-        });
-
-        b5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ifErrorOnOutput();
-                exceedLength();
-                if (negetive == false) {
-                    t1.setText(t1.getText().toString() + "5");
-                } else {
-                    t1.setText(t1.getText().toString() + "-5");
-                    negetive = false;
-                }
-            }
-        });
-
-        b6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ifErrorOnOutput();
-                exceedLength();
-                if (negetive == false) {
-                    t1.setText(t1.getText().toString() + "6");
-                } else {
-                    t1.setText(t1.getText().toString() + "-6");
-                    negetive = false;
-                }
-            }
-        });
-
-        b7.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ifErrorOnOutput();
-                exceedLength();
-                if (negetive == false) {
-                    t1.setText(t1.getText().toString() + "7");
-                } else {
-                    t1.setText(t1.getText().toString() + "-7");
-                    negetive = false;
-                }
-            }
-        });
-
-        b8.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ifErrorOnOutput();
-                exceedLength();
-                if (negetive == false) {
-                    t1.setText(t1.getText().toString() + "8");
-                } else {
-                    t1.setText(t1.getText().toString() + "-8");
-                    negetive = false;
-                }
-            }
-        });
-
-        b9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ifErrorOnOutput();
-                exceedLength();
-                if (negetive == false) {
-                    t1.setText(t1.getText().toString() + "9");
-                } else {
-                    t1.setText(t1.getText().toString() + "-9");
-                    negetive = false;
-                }
-            }
-        });
 
         b0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -253,6 +151,7 @@ public class MainActivity extends AppCompatActivity {
                 if (t1.getText().length() > 0) {
                     ACTION = ADDITION;
                     operation();
+
                     if (!ifReallyDecimal()) {
                         t2.setText(val1 + "+");
                     } else {
@@ -334,6 +233,7 @@ public class MainActivity extends AppCompatActivity {
                 if (t1.getText().length() > 0) {
                     operation();
                     ACTION = EQU;
+
                     if (!ifReallyDecimal()) {
                         t2.setText(/*t2.getText().toString() + String.valueOf(val2) + "=" + */String.valueOf(val1));
                     } else {
@@ -383,18 +283,68 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+        r_shift.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (t1.getText().length() > 0) {
+                    ACTION = RIGHT_SHIFT;
+                    operation();
+                    if (ifReallyDecimal()) {
+                        t2.setText((int) val1 + ">>");
+                    } else {
+                        t2.setText(val1 + ">>");
+                    }
+                    t1.setText(null);
+                } else {
+                    t2.setText("Error");
+                }
+            }
+        });
+
+        l_shift.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (t1.getText().length() > 0) {
+                    ACTION = LEFT_SHIFT;
+                    operation();
+                    if (ifReallyDecimal()) {
+                        t2.setText((int) val1 + "<<");
+                    } else {
+                        t2.setText(val1 + "<<");
+                    }
+                    t1.setText(null);
+                } else {
+                    t2.setText("Error");
+                }
+            }
+        });
+
+
+        b_not.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (t1.getText().length() > 0) {
+                    String a = "";
+                    for (int i = 0; i < t1.length(); i++) {
+                        if (t1.getText().charAt(i) == '0') {
+                            a += "1";
+                        } else {
+                            a += "0";
+                        }
+                    }
+                    t2.setText(a);
+                    t1.setText(a);
+                } else {
+                    t2.setText("Error");
+                }
+            }
+        });
+
     }
 
     private void viewSetup() {
         b1 = findViewById(R.id.button1);
-        b2 = findViewById(R.id.button2);
-        b3 = findViewById(R.id.button3);
-        b4 = findViewById(R.id.button4);
-        b5 = findViewById(R.id.button5);
-        b6 = findViewById(R.id.button6);
-        b7 = findViewById(R.id.button7);
-        b8 = findViewById(R.id.button8);
-        b9 = findViewById(R.id.button9);
         b0 = findViewById(R.id.button0);
         b_equal = findViewById(R.id.button_equal);
         b_multi = findViewById(R.id.button_multi);
@@ -408,32 +358,76 @@ public class MainActivity extends AppCompatActivity {
         t1 = findViewById(R.id.input);
         t2 = findViewById(R.id.output);
         b_adv = findViewById(R.id.button_adv);
+        r_shift = findViewById(R.id.button_r_shift);
+        l_shift = findViewById(R.id.button_l_shift);
+        to_dec = findViewById(R.id.button_dex);
+        to_hex = findViewById(R.id.button_hex);
+        b_not = findViewById(R.id.button_not);
 
+        b_and = findViewById(R.id.button_and);
+        b_or = findViewById(R.id.button_or);
+        b_xor = findViewById(R.id.button_xor);
     }
 
     private void operation() {
         if (!Double.isNaN(val1)) {
+            if (t2.getText().toString().charAt(0) == '-') {
+                val1 = (-1) * val1;
+            }
+            val2 = 0.0;
             val2 = Double.parseDouble(t1.getText().toString());
 
             switch (ACTION) {
                 case ADDITION:
+                    val1 = to_decimal(val1);
+                    val2 = to_decimal(val2);
                     val1 = val1 + val2;
+                    to_binary(val1);
                     break;
                 case SUBTRACTION:
+                    val1 = to_decimal(val1);
+                    val2 = to_decimal(val2);
                     val1 = val1 - val2;
+                    to_binary(val1);
                     break;
                 case MULTIPLICATION:
+                    val1 = to_decimal(val1);
+                    val2 = to_decimal(val2);
                     val1 = val1 * val2;
+                    to_binary(val1);
                     break;
                 case DIVISION:
+                    val1 = to_decimal(val1);
+                    val2 = to_decimal(val2);
                     val1 = val1 / val2;
+                    to_binary(val1);
                     break;
                 case EXTRA:
+                    val1 = to_decimal(val1);
                     val1 = (-1) * val1;
+                    to_binary(val1);
                     break;
                 case MODULUS:
+                    val1 = to_decimal(val1);
+                    val2 = to_decimal(val2);
                     val1 = val1 % val2;
+                    to_binary(val1);
                     break;
+
+                case LEFT_SHIFT:
+                    val1 = to_decimal(val1);
+                    val2 = to_decimal(val2);
+                    val1 = (int) val1 << (int) val2;
+                    to_binary(val1);
+                    break;
+
+                case RIGHT_SHIFT:
+                    val1 = to_decimal(val1);
+                    val2 = to_decimal(val2);
+                    val1 = (int) val1 >> (int) val2;
+                    to_binary(val1);
+                    break;
+
                 case EQU:
                     break;
             }
@@ -448,6 +442,16 @@ public class MainActivity extends AppCompatActivity {
             t2.setText("");
         }
     }
+
+
+    private void to_binary(double a) {
+        val1 = Func.toBinary(a, 20);
+    }
+
+    private double to_decimal(double a) {
+        return Func.binaryStringToDouble(String.valueOf(a));
+    }
+
 
     // Whether value if a double or not
     private boolean ifReallyDecimal() {

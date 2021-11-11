@@ -46,6 +46,7 @@ class ConvertActivity : AppCompatActivity() {
         resetLists()
 
 //        setSupportActionBar(binding.mainToolbar)
+        title = "Unit Converter"
         supportActionBar?.setDisplayShowTitleEnabled(true)
 
         binding.toolbarContents.categoryToolbarContainer.setOnClickListener { categoryMenu.show() }

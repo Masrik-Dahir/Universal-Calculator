@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 public class Scroll extends AppCompatActivity {
-    Button basic_calculator, scientific_calculator, exit, unit_converter;
+    Button basic_calculator, scientific_calculator, exit, unit_converter, binary_calculator, hexadecimal_calculator;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +19,8 @@ public class Scroll extends AppCompatActivity {
         scientific_calculator = findViewById(R.id.scientific_calculator);
         exit = findViewById(R.id.exit);
         unit_converter = findViewById(R.id.unit_converter);
+        binary_calculator = findViewById(R.id.binary_calculator);
+        hexadecimal_calculator = findViewById(R.id.hexadecimal_calculator);
 
 
         basic_calculator.setOnClickListener(new View.OnClickListener() {
@@ -44,6 +46,22 @@ public class Scroll extends AppCompatActivity {
             }
 
         });
+
+        binary_calculator.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), Binary.class);
+                startActivityForResult(myIntent, 0);
+            }
+
+        });
+
+//        hexadecimal_calculator.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View view) {
+//                Intent myIntent = new Intent(view.getContext(), Hexadecimal.class);
+//                startActivityForResult(myIntent, 0);
+//            }
+//
+//        });
 
         exit.setOnClickListener(new View.OnClickListener() {
 

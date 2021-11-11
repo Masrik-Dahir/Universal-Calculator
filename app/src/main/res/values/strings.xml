@@ -73,13 +73,14 @@
     <string name="edit_unit">Edit unit</string>
     <string name="preview">Preview</string>
     <string name="inverse">Inverse</string>
-    <string name="nice_try">Nice try!</string>
     <string name="custom_unit_name">Name of unit</string>
     <string name="custom_unit_name_invalid">Invalid name (must be non-empty)</string>
     <string name="custom_unit_base">Base unit:</string>
     <string name="custom_unit_multiplier">Multiplier</string>
     <string name="custom_unit_multiplier_invalid">Invalid multiplier (must be a nonzero decimal number)</string>
     <string name="custom_unit_multiplier_default">1.0</string>
+    <string name="left_shift"><![CDATA[<<]]></string>
+    <string name="right_shift"><![CDATA[>>]]></string>
 
 
 </resources>

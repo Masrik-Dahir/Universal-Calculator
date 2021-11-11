@@ -35,6 +35,7 @@
         <activity android:name="com.masrik.convertme.Activity2"></activity>
         <activity android:name="com.masrik.convertme.Scroll"></activity>
         <activity android:name="com.masrik.convertme.ConvertActivity"></activity>
+        <activity android:name="com.masrik.convertme.Binary"></activity>
 
 
 

@@ -4,6 +4,30 @@ import java.math.BigInteger;
 
 public class Func {
 
+    public static double toBinary(double d, int precision) {
+        long wholePart = (long) d;
+        return Double.parseDouble(wholeToBinary(wholePart) + '.' + fractionalToBinary(d - wholePart, precision));
+    }
+
+    private static String wholeToBinary(long l) {
+        return Long.toBinaryString(l);
+    }
+
+    private static String fractionalToBinary(double num, int precision) {
+        StringBuilder binary = new StringBuilder();
+        while (num > 0 && binary.length() < precision) {
+            double r = num * 2;
+            if (r >= 1) {
+                binary.append(1);
+                num = r - 1;
+            } else {
+                binary.append(0);
+                num = r;
+            }
+        }
+        return binary.toString();
+    }
+
     public static int factorial(double number) {
         int i, fact = 1;
         for (i = 1; i <= (int) number; i++) {
@@ -92,6 +116,31 @@ public class Func {
         return result;
 
 
+    }
+
+    public static String addBinary() {
+        // The two input Strings, containing the binary representation of the two values:
+        String input0 = "1010";
+        String input1 = "10";
+
+        // Use as radix 2 because it's binary
+        int number0 = Integer.parseInt(input0, 2);
+        int number1 = Integer.parseInt(input1, 2);
+
+        int sum = number0 + number1;
+        return Integer.toBinaryString(sum); //returns the answer as a binary value;
+    }
+
+    public static double binaryStringToDouble(String s) {
+        return stringToDouble(s, 2);
+    }
+
+    public static double stringToDouble(String s, int base) {
+        String withoutPeriod = s.replace(".", "");
+        double value = new BigInteger(withoutPeriod, base).doubleValue();
+        String binaryDivisor = "1" + s.split("\\.")[1].replace("1", "0");
+        double divisor = new BigInteger(binaryDivisor, base).doubleValue();
+        return value / divisor;
     }
 
 }
