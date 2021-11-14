@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private double val2;
     double asd = val1;
     boolean negetive = false;
+    double result = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

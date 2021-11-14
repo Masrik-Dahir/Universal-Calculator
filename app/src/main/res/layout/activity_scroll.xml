@@ -58,6 +58,19 @@
                 android:textColor="#000"
                 android:textSize="30sp" />
 
+
+            <Button
+                android:id="@+id/decimal_calculator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/button"
+                android:text="Decimal"
+                android:textColor="#000"
+                android:textSize="30sp" />
+
             <Button
                 android:id="@+id/binary_calculator"
                 android:layout_width="fill_parent"
