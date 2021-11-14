@@ -741,13 +741,13 @@
 
 
     <Button
-        android:id="@+id/bin"
+        android:id="@+id/apery"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/circle_button"
-        android:text="Bin"
+        android:text="Apery"
         android:textColor="#ffff"
-        android:textSize="15sp"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -761,13 +761,13 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/circle_button"
-        android:text="e"
+        android:text="Euler"
         android:textColor="#ffff"
-        android:textSize="15sp"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/bin"
+        app:layout_constraintStart_toEndOf="@+id/apery"
         app:layout_constraintTop_toBottomOf="@+id/coth"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -776,7 +776,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:background="@drawable/circle_button"
-        android:text="pie"
+        android:text="π"
         android:textColor="#ffff"
         android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
