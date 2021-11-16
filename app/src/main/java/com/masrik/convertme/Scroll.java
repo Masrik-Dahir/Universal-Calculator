@@ -25,7 +25,7 @@ public class Scroll extends AppCompatActivity {
 
         basic_calculator.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), MainActivity.class);
+                Intent myIntent = new Intent(view.getContext(), BasicCalculator.class);
                 startActivityForResult(myIntent, 0);
             }
 
