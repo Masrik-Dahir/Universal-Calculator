@@ -238,8 +238,8 @@
 
         <Button
             android:id="@+id/button_clear"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
             android:background="@drawable/button"
             android:fontFamily="sans-serif-medium"
             android:text="AC"
@@ -258,7 +258,7 @@
             android:layout_height="70dp"
             android:background="@drawable/arithmatic_button"
             android:fontFamily="sans-serif-medium"
-            android:text="%"
+            android:text="ieee"
             android:textColor="#060606"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -279,7 +279,7 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.462"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.406" />
@@ -311,7 +311,7 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.747"
+            app:layout_constraintHorizontal_bias="0.674"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.406" />
@@ -327,7 +327,7 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.272"
+            app:layout_constraintHorizontal_bias="0.274"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.406" />
