@@ -58,7 +58,7 @@ class NumberPadView @JvmOverloads constructor(
             if (!curVal.contains(str)) {
                 curVal += "."
             }
-        } else if (str == "±") {
+        } else if (str == "+/-") {
             curVal = if (curVal.startsWith("-")) {
                 curVal.substring(1, curVal.length)
             } else {
