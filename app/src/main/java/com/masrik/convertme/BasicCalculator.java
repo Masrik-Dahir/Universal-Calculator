@@ -17,6 +17,7 @@ public class BasicCalculator extends AppCompatActivity {
     String operation;
     double value, valueone, result;
     int subs = 1;
+    boolean negative = false;
 
     /**
      * Called when the activity is first created.
@@ -54,73 +55,132 @@ public class BasicCalculator extends AppCompatActivity {
         b_para2 = findViewById(R.id.button_para2);
 
 
+        b_para2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                negative = true;
+            }
+        });
+
+
         zero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                input.setText(input.getText() + "0");
+                if (negative == false) {
+                    input.setText(input.getText() + "0");
+                } else {
+                    input.setText(input.getText() + "0");
+                    negative = false;
+                }
+
             }
         });
 
         one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                input.setText(input.getText() + "1");
+                if (negative == false) {
+                    input.setText(input.getText() + "1");
+                } else {
+                    input.setText(input.getText() + "-1");
+                    negative = false;
+                }
             }
         });
 
         two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                input.setText(input.getText() + "2");
+                if (negative == false) {
+                    input.setText(input.getText() + "2");
+                } else {
+                    input.setText(input.getText() + "-2");
+                    negative = false;
+                }
             }
         });
 
         three.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                input.setText(input.getText() + "3");
+                if (negative == false) {
+                    input.setText(input.getText() + "3");
+                } else {
+                    input.setText(input.getText() + "-3");
+                    negative = false;
+                }
             }
         });
 
         four.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                input.setText(input.getText() + "4");
+                if (negative == false) {
+                    input.setText(input.getText() + "4");
+                } else {
+                    input.setText(input.getText() + "-4");
+                    negative = false;
+                }
             }
         });
 
         five.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                input.setText(input.getText() + "5");
+                if (negative == false) {
+                    input.setText(input.getText() + "5");
+                } else {
+                    input.setText(input.getText() + "-5");
+                    negative = false;
+                }
             }
         });
 
         six.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                input.setText(input.getText() + "6");
+                if (negative == false) {
+                    input.setText(input.getText() + "6");
+                } else {
+                    input.setText(input.getText() + "-6");
+                    negative = false;
+                }
             }
         });
 
         seven.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                input.setText(input.getText() + "7");
+                if (negative == false) {
+                    input.setText(input.getText() + "7");
+                } else {
+                    input.setText(input.getText() + "-7");
+                    negative = false;
+                }
             }
         });
 
         eight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                input.setText(input.getText() + "8");
+                if (negative == false) {
+                    input.setText(input.getText() + "8");
+                } else {
+                    input.setText(input.getText() + "-8");
+                    negative = false;
+                }
             }
         });
 
         nine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                input.setText(input.getText() + "9");
+                if (negative == false) {
+                    input.setText(input.getText() + "9");
+                } else {
+                    input.setText(input.getText() + "-9");
+                    negative = false;
+                }
             }
         });
 
