@@ -42,13 +42,13 @@ public class Binary extends AppCompatActivity {
     private Button b_and;
     private Button b_or;
     private Button b_xor;
-
+    private Button b_ieee;
 
     private Button b_sub;
     private Button b_clear;
     private Button b_dot;
-    private Button b_para1;
-    private Button b_para2;
+    private Button b_comp1;
+    private Button b_comp2;
     private Button b_adv;
     private TextView t1;
     private TextView t2;
@@ -127,24 +127,6 @@ public class Binary extends AppCompatActivity {
             }
         });
 
-        b_para1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (t1.getText().length() > 0) {
-                    ACTION = MODULUS;
-                    operation();
-                    if (!ifReallyDecimal()) {
-                        t2.setText(val1 + "%");
-                    } else {
-                        t2.setText((int) val1 + "%");
-                    }
-                    t1.setText(null);
-                } else {
-                    t2.setText("Error");
-                }
-            }
-        });
-
         b_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -216,13 +198,6 @@ public class Binary extends AppCompatActivity {
                 } else {
                     t2.setText("Error");
                 }
-            }
-        });
-
-        b_para2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                negetive = true;
             }
         });
 
@@ -353,8 +328,6 @@ public class Binary extends AppCompatActivity {
         b_sub = findViewById(R.id.button_sub);
         b_clear = findViewById(R.id.button_clear);
         b_dot = findViewById(R.id.button_dot);
-        b_para1 = findViewById(R.id.button_para1);
-        b_para2 = findViewById(R.id.button_para2);
         t1 = findViewById(R.id.input);
         t2 = findViewById(R.id.output);
         b_adv = findViewById(R.id.button_adv);
@@ -363,10 +336,13 @@ public class Binary extends AppCompatActivity {
         to_dec = findViewById(R.id.button_dex);
         to_hex = findViewById(R.id.button_hex);
         b_not = findViewById(R.id.button_not);
-
         b_and = findViewById(R.id.button_and);
         b_or = findViewById(R.id.button_or);
         b_xor = findViewById(R.id.button_xor);
+
+        b_comp1 = findViewById(R.id.button_comp1);
+        b_comp2 = findViewById(R.id.button_comp2);
+        b_ieee = findViewById(R.id.button_ieee);
     }
 
     private void operation() {

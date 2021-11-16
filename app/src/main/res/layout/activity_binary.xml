@@ -238,8 +238,8 @@
 
         <Button
             android:id="@+id/button_clear"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="@drawable/button"
             android:fontFamily="sans-serif-medium"
             android:text="AC"
@@ -253,7 +253,7 @@
             app:layout_constraintVertical_bias="0.406" />
 
         <Button
-            android:id="@+id/button_para1"
+            android:id="@+id/button_ieee"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/arithmatic_button"
@@ -267,6 +267,22 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.677" />
+
+        <Button
+            android:id="@+id/button_comp2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@drawable/button"
+            android:fontFamily="sans-serif-medium"
+            android:text="2'c"
+            android:textColor="#060606"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.406" />
 
         <Button
             android:id="@+id/button_l_shift"
@@ -295,23 +311,23 @@
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.674"
+            app:layout_constraintHorizontal_bias="0.747"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.406" />
 
         <Button
-            android:id="@+id/button_para2"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:id="@+id/button_comp1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:background="@drawable/button"
             android:fontFamily="sans-serif-medium"
-            android:text="+/-"
+            android:text="1'c"
             android:textColor="#060606"
             android:textSize="30sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.36"
+            app:layout_constraintHorizontal_bias="0.272"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.406" />
