@@ -19,7 +19,7 @@ public class Activity2 extends AppCompatActivity {
     String operation;
     double value, valueone, result;
     int subs = 1;
-    boolean negative = true;
+    boolean negative = false;
 
     /**
      * Called when the activity is first created.

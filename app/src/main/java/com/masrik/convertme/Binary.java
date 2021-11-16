@@ -43,7 +43,7 @@ public class Binary extends AppCompatActivity {
     private Button b_or;
     private Button b_xor;
     private Button b_ieee;
-
+    private Button b_del;
     private Button b_sub;
     private Button b_clear;
     private Button b_dot;
@@ -226,6 +226,21 @@ public class Binary extends AppCompatActivity {
             public void onClick(View view) {
                 if (t1.getText().length() > 0) {
                     CharSequence name = t1.getText().toString();
+                    t1.setText(name.subSequence(0, 0));
+                } else {
+                    val1 = Double.NaN;
+                    val2 = Double.NaN;
+                    t1.setText("");
+                    t2.setText("");
+                }
+            }
+        });
+
+        b_del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (t1.getText().length() > 0) {
+                    CharSequence name = t1.getText().toString();
                     t1.setText(name.subSequence(0, name.length() - 1));
                 } else {
                     val1 = Double.NaN;
@@ -339,7 +354,7 @@ public class Binary extends AppCompatActivity {
         b_and = findViewById(R.id.button_and);
         b_or = findViewById(R.id.button_or);
         b_xor = findViewById(R.id.button_xor);
-
+        b_del = findViewById(R.id.button_del);
         b_comp1 = findViewById(R.id.button_comp1);
         b_comp2 = findViewById(R.id.button_comp2);
         b_ieee = findViewById(R.id.button_ieee);
