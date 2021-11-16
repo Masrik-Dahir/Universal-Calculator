@@ -13,7 +13,7 @@ public class BasicCalculator extends AppCompatActivity {
     TextView output, input;
     Button zero, one, two, three, four, five, six, seven, eight,
             nine, add, sub, mul, div, mod, equal, clear, point,
-            b_para2;
+            b_para2, button_del;
     String operation;
     double value, valueone, result;
     int subs = 1;
@@ -53,6 +53,7 @@ public class BasicCalculator extends AppCompatActivity {
         equal = findViewById(R.id.button_equal);
         clear = findViewById(R.id.button_clear);
         b_para2 = findViewById(R.id.button_para2);
+        button_del = findViewById(R.id.button_del);
 
 
         b_para2.setOnClickListener(new View.OnClickListener() {
