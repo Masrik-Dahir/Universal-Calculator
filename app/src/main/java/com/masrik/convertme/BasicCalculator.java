@@ -437,6 +437,17 @@ public class BasicCalculator extends AppCompatActivity {
             }
         });
 
+        button_del.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                value = 0;
+                valueone = 0;
+                result = 0;
+                input.setText("");
+                output.setText("");
+            }
+        });
+
 
         // Advanced button
         Button next = findViewById(R.id.button_adv);
