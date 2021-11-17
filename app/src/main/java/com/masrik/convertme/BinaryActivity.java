@@ -33,8 +33,6 @@ public class BinaryActivity extends AppCompatActivity {
     Button b_comp1;
     Button b_comp2;
     Button b_adv;
-    TextView t1;
-    TextView t2;
     char ACTION;
     double val1 = Double.NaN;
     String operation;
@@ -78,6 +76,7 @@ public class BinaryActivity extends AppCompatActivity {
         b_or = findViewById(R.id.button_or);
         b_xor = findViewById(R.id.button_xor);
         b_ieee = findViewById(R.id.button_ieee);
+        b_comp1 = findViewById(R.id.button_comp1);
 
 
         b0.setOnClickListener(new View.OnClickListener() {
@@ -158,6 +157,21 @@ public class BinaryActivity extends AppCompatActivity {
             }
         });
 
+        b_comp1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+                    value = Double.parseDouble(input.getText().toString());
+                    String result_1 = String.valueOf((int) value);
+                    String news = Func.comp_1(result_1);
+
+                    input.setText(news);
+                    output.setText(value + " (1's-C)");
+                }
+
+            }
+        });
+
 
         b_equal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -201,6 +215,10 @@ public class BinaryActivity extends AppCompatActivity {
                             output.setText(output.getText() + String.valueOf(valueone));
                             input.setText(String.valueOf(result));
                         }
+//                        if (operation.equals("1_s")) {
+////                            value = value / valueone;
+//
+//                        }
 
 
                     }

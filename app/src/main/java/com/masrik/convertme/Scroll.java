@@ -49,7 +49,7 @@ public class Scroll extends AppCompatActivity {
 
         binary_calculator.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Intent myIntent = new Intent(view.getContext(), Binary.class);
+                Intent myIntent = new Intent(view.getContext(), BinaryActivity.class);
                 startActivityForResult(myIntent, 0);
             }
 
