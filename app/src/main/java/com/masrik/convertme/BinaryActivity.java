@@ -199,25 +199,14 @@ public class BinaryActivity extends AppCompatActivity {
                     if (!(output.getText().equals("") && input.getText().equals(""))) {
                         valueone = Double.parseDouble(input.getText().toString());
                         if (operation.equals("+")) {
+                            output.setText(output.getText() + String.valueOf(valueone));
                             value = Func.binary_to_double(String.valueOf(value));
                             valueone = Func.binary_to_double(String.valueOf(valueone));
                             value = value + valueone;
                             result = Double.parseDouble(Func.toBinary(String.valueOf(value)));
-                            output.setText(output.getText() + String.valueOf(valueone));
                             input.setText(String.valueOf(result));
                         }
-                        if (operation.equals(" (P) ")) {
-                            value = Func.permutation(value, valueone);
-                            result = value;
-                            output.setText(output.getText() + String.valueOf(valueone));
-                            input.setText(String.valueOf(result));
-                        }
-                        if (operation.equals(" (C) ")) {
-                            value = Func.combination(value, valueone);
-                            result = value;
-                            output.setText(output.getText() + String.valueOf(valueone));
-                            input.setText(String.valueOf(result));
-                        }
+
                         if (operation.equals("-")) {
                             value = value - valueone;
                             result = value;
