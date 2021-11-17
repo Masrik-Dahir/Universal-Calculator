@@ -14,7 +14,7 @@
         tools:context=".Binary">
 
         <Button
-            android:id="@+id/button_dex"
+            android:id="@+id/button_dec"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:background="@drawable/arithmatic_button"

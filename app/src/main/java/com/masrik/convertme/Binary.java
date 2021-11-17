@@ -331,6 +331,24 @@ public class Binary extends AppCompatActivity {
             }
         });
 
+        b_comp1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (t1.getText().length() > 0) {
+                    ACTION = LEFT_SHIFT;
+                    operation();
+                    if (ifReallyDecimal()) {
+                        t2.setText("1's Complement of " + (int) val1);
+                    } else {
+                        t2.setText("1's Complement of " + val1);
+                    }
+                    t1.setText(null);
+                } else {
+                    t2.setText("Error");
+                }
+            }
+        });
+
     }
 
     private void viewSetup() {
@@ -348,7 +366,7 @@ public class Binary extends AppCompatActivity {
         b_adv = findViewById(R.id.button_adv);
         r_shift = findViewById(R.id.button_r_shift);
         l_shift = findViewById(R.id.button_l_shift);
-        to_dec = findViewById(R.id.button_dex);
+        to_dec = findViewById(R.id.button_dec);
         to_hex = findViewById(R.id.button_hex);
         b_not = findViewById(R.id.button_not);
         b_and = findViewById(R.id.button_and);
