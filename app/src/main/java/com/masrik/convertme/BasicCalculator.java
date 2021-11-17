@@ -440,11 +440,15 @@ public class BasicCalculator extends AppCompatActivity {
         button_del.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                value = 0;
-                valueone = 0;
-                result = 0;
-                input.setText("");
-                output.setText("");
+                if (input.getText().length() > 0) {
+                    CharSequence name = input.getText().toString();
+                    input.setText(name.subSequence(0, name.length() - 1));
+                } else {
+                    value = Double.NaN;
+                    valueone = Double.NaN;
+                    input.setText("");
+                    output.setText("");
+                }
             }
         });
 
