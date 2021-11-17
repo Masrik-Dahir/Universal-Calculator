@@ -2,11 +2,13 @@ package com.masrik.convertme;
 
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class BinaryActivity extends AppCompatActivity {
@@ -77,6 +79,7 @@ public class BinaryActivity extends AppCompatActivity {
         b_xor = findViewById(R.id.button_xor);
         b_ieee = findViewById(R.id.button_ieee);
         b_comp1 = findViewById(R.id.button_comp1);
+        b_comp2 = findViewById(R.id.button_comp2);
 
 
         b0.setOnClickListener(new View.OnClickListener() {
@@ -161,10 +164,10 @@ public class BinaryActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (!input.getText().equals("")) {
+
                     value = Double.parseDouble(input.getText().toString());
                     String result_1 = String.valueOf((int) value);
                     String news = Func.comp_1(result_1);
-
                     input.setText(news);
                     output.setText(value + " (1's-C)");
                 }
@@ -172,16 +175,34 @@ public class BinaryActivity extends AppCompatActivity {
             }
         });
 
+        b_comp2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+
+                    value = Double.parseDouble(input.getText().toString());
+                    String result_1 = String.valueOf((int) value);
+                    String news = Func.comp_2(result_1);
+                    input.setText(news);
+                    output.setText(value + " (2's-C)");
+                }
+
+            }
+        });
+
 
         b_equal.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
                 try {
                     if (!(output.getText().equals("") && input.getText().equals(""))) {
                         valueone = Double.parseDouble(input.getText().toString());
                         if (operation.equals("+")) {
+                            value = Func.binary_to_double(String.valueOf(value));
+                            valueone = Func.binary_to_double(String.valueOf(valueone));
                             value = value + valueone;
-                            result = value;
+                            result = Double.parseDouble(Func.toBinary(String.valueOf(value)));
                             output.setText(output.getText() + String.valueOf(valueone));
                             input.setText(String.valueOf(result));
                         }
