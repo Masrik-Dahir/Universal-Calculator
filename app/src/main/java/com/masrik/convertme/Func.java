@@ -132,7 +132,7 @@ public class Func {
             fraction = .0;
         }
 
-        long wholePart = (long) d;
+        long wholePart = d;
         int precision = 20;
         String first = wholeToBinary(wholePart);
         String second = fractionalToBinary(fraction, precision);
@@ -394,6 +394,28 @@ public class Func {
             return clean(bin);
         }
         return bin;
+    }
+
+    public static String comp_1(String a) {
+        BigInteger twoToLength = new BigInteger("2").pow(a.length());
+        String b = twoToLength.add(new BigInteger(a, 2).not()).toString(2);
+        return b;
+    }
+
+    public static String comp_2(String first) {
+        int n_first = Integer.parseInt(first, 2);
+        int n_second = 1;
+        int result = n_first + n_second;
+
+        return Integer.toBinaryString(result);
+    }
+
+    public static String addBinary(String first, String second) {
+        int n_first = Integer.parseInt(first, 2);
+        int n_second = Integer.parseInt(second, 2);
+
+        int result = n_first + n_second;
+        return Integer.toBinaryString(result); //returns the answer as a binary value;
     }
 
 }
