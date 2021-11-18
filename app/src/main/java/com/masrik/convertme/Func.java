@@ -6,7 +6,7 @@ import androidx.annotation.RequiresApi;
 
 import java.math.BigInteger;
 
-public class Func {
+public class Func  {
 
     public static double toBinary(double d, int precision) {
         long wholePart = (long) d;

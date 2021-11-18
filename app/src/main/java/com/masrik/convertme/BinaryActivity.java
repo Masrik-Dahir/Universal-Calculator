@@ -196,8 +196,23 @@ public class BinaryActivity extends AppCompatActivity {
                 if (!input.getText().equals("")) {
 
                     value = Double.parseDouble(input.getText().toString());
-                    String result_1 = String.valueOf((int) value);
+                    String result_1 = String.valueOf(value);
                     String news = String.valueOf(Func.binary_to_double(result_1));
+                    input.setText(news);
+                    output.setText(String.valueOf(value));
+                }
+
+            }
+        });
+
+        to_hex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+
+                    value = Double.parseDouble(input.getText().toString());
+                    String result_1 = String.valueOf(value);
+                    String news = String.valueOf(Func.binary_to_hex(result_1));
                     input.setText(news);
                     output.setText(String.valueOf(value));
                 }
