@@ -57,7 +57,7 @@ public class BinaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_binary);
 
-        setTitle("Basic Calculator");
+        setTitle("Binary Calculator");
         output = findViewById(R.id.output);
         input = findViewById(R.id.input);
         b0 = findViewById(R.id.button0);
