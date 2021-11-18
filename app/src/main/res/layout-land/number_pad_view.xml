@@ -13,158 +13,159 @@
     <TextView
         android:id="@+id/btn1"
         style="@style/ButtonTextView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:layout_marginStart="6dp"
-        android:layout_marginLeft="6dp"
-        android:layout_marginTop="6dp"
-        android:background="@drawable/circle_button"
-        android:text="@string/str_1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+    android:layout_marginStart="6dp"
+    android:layout_marginLeft="6dp"
+    android:layout_marginTop="6dp"
+    android:background="@drawable/circle_button"
+    android:text="@string/str_1"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/btn2"
         style="@style/ButtonTextView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:layout_marginStart="@dimen/button_margin"
-        android:layout_marginLeft="@dimen/button_margin"
-        android:background="@drawable/circle_button"
-        android:text="@string/str_2"
-        app:layout_constraintStart_toEndOf="@id/btn1"
-        app:layout_constraintTop_toTopOf="@+id/btn1" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+    android:layout_marginStart="@dimen/button_margin"
+    android:layout_marginLeft="@dimen/button_margin"
+    android:background="@drawable/circle_button"
+    android:text="@string/str_2"
+    app:layout_constraintStart_toEndOf="@id/btn1"
+    app:layout_constraintTop_toTopOf="@+id/btn1" />
 
     <TextView
         android:id="@+id/btn3"
         style="@style/ButtonTextView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:layout_marginStart="@dimen/button_margin"
-        android:layout_marginLeft="@dimen/button_margin"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
-        android:background="@drawable/circle_button"
-        android:text="@string/str_3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/btn2"
-        app:layout_constraintTop_toTopOf="@+id/btn1" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+    android:layout_marginStart="@dimen/button_margin"
+    android:layout_marginLeft="@dimen/button_margin"
+    android:layout_marginEnd="6dp"
+    android:layout_marginRight="6dp"
+    android:background="@drawable/circle_button"
+    android:text="@string/str_3"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toEndOf="@id/btn2"
+    app:layout_constraintTop_toTopOf="@+id/btn1" />
 
     <TextView
         android:id="@+id/btn4"
         style="@style/ButtonTextView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:layout_marginTop="@dimen/button_margin"
-        android:background="@drawable/circle_button"
-        android:text="@string/str_4"
-        app:layout_constraintStart_toStartOf="@id/btn1"
-        app:layout_constraintTop_toBottomOf="@id/btn1" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+    android:layout_marginTop="@dimen/button_margin"
+    android:background="@drawable/circle_button"
+    android:text="@string/str_4"
+    app:layout_constraintStart_toStartOf="@id/btn1"
+    app:layout_constraintTop_toBottomOf="@id/btn1" />
 
     <TextView
         android:id="@+id/btn5"
         style="@style/ButtonTextView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:background="@drawable/circle_button"
-        android:text="@string/str_5"
-        app:layout_constraintStart_toStartOf="@id/btn2"
-        app:layout_constraintTop_toTopOf="@id/btn4" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+    android:background="@drawable/circle_button"
+    android:text="@string/str_5"
+    app:layout_constraintStart_toStartOf="@id/btn2"
+    app:layout_constraintTop_toTopOf="@id/btn4" />
 
     <TextView
         android:id="@+id/btn6"
         style="@style/ButtonTextView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:background="@drawable/circle_button"
-        android:text="@string/str_6"
-        app:layout_constraintStart_toStartOf="@id/btn3"
-        app:layout_constraintTop_toTopOf="@id/btn5" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+    android:background="@drawable/circle_button"
+    android:text="@string/str_6"
+    app:layout_constraintStart_toStartOf="@id/btn3"
+    app:layout_constraintTop_toTopOf="@id/btn5" />
 
     <TextView
         android:id="@+id/btn7"
         style="@style/ButtonTextView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:layout_marginTop="@dimen/button_margin"
-        android:background="@drawable/circle_button"
-        android:text="@string/str_7"
-        app:layout_constraintStart_toStartOf="@id/btn4"
-        app:layout_constraintTop_toBottomOf="@id/btn4" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+    android:layout_marginTop="@dimen/button_margin"
+    android:background="@drawable/circle_button"
+    android:text="@string/str_7"
+    app:layout_constraintStart_toStartOf="@id/btn4"
+    app:layout_constraintTop_toBottomOf="@id/btn4" />
 
     <TextView
         android:id="@+id/btn8"
         style="@style/ButtonTextView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:background="@drawable/circle_button"
-        android:text="@string/str_8"
-        app:layout_constraintStart_toStartOf="@id/btn5"
-        app:layout_constraintTop_toTopOf="@id/btn7" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+    android:background="@drawable/circle_button"
+    android:text="@string/str_8"
+    app:layout_constraintStart_toStartOf="@id/btn5"
+    app:layout_constraintTop_toTopOf="@id/btn7" />
 
     <TextView
         android:id="@+id/btn9"
         style="@style/ButtonTextView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:background="@drawable/circle_button"
-        android:text="@string/str_9"
-        app:layout_constraintStart_toStartOf="@id/btn6"
-        app:layout_constraintTop_toTopOf="@id/btn8" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+    android:background="@drawable/circle_button"
+    android:text="@string/str_9"
+    app:layout_constraintStart_toStartOf="@id/btn6"
+    app:layout_constraintTop_toTopOf="@id/btn8" />
 
     <TextView
         android:id="@+id/btnNegative"
         style="@style/ButtonTextView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:layout_marginTop="@dimen/button_margin"
-        android:background="@drawable/button"
-        android:text="+/-"
-        android:textColor="#000"
-        app:layout_constraintStart_toStartOf="@id/btn7"
-        app:layout_constraintTop_toBottomOf="@id/btn7" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+    android:layout_marginTop="@dimen/button_margin"
+    android:background="@drawable/button"
+    android:text="+/-"
+    android:textColor="#000"
+    app:layout_constraintStart_toStartOf="@id/btn7"
+    app:layout_constraintTop_toBottomOf="@id/btn7" />
 
     <TextView
         android:id="@+id/btn0"
         style="@style/ButtonTextView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:background="@drawable/circle_button"
-        android:text="@string/str_0"
-        app:layout_constraintStart_toStartOf="@id/btn8"
-        app:layout_constraintTop_toTopOf="@id/btnNegative" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+    android:background="@drawable/circle_button"
+    android:text="@string/str_0"
+    app:layout_constraintStart_toStartOf="@id/btn8"
+    app:layout_constraintTop_toTopOf="@id/btnNegative" />
 
     <TextView
         android:id="@+id/btnDecimal"
         style="@style/ButtonTextView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:background="@drawable/circle_button"
-        android:text="@string/str_pad_point"
-        app:layout_constraintStart_toStartOf="@id/btn9"
-        app:layout_constraintTop_toTopOf="@id/btn0" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+    android:background="@drawable/circle_button"
+    android:text="@string/str_pad_point"
+    app:layout_constraintStart_toStartOf="@id/btn9"
+    app:layout_constraintTop_toTopOf="@id/btn0" />
 
     <TextView
         android:id="@+id/btnBackspace"
         style="@style/ButtonTextView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/button"
-        android:text="@string/str_pad_back"
-        android:textColor="#000"
-        app:layout_constraintStart_toStartOf="@id/btnNegative"
-        app:layout_constraintTop_toBottomOf="@id/btnNegative" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+    android:layout_marginTop="16dp"
+    android:background="@drawable/button"
+    android:text="@string/str_pad_back"
+    android:textColor="#000"
+    app:layout_constraintStart_toStartOf="@id/btnNegative"
+    app:layout_constraintTop_toBottomOf="@id/btnNegative" />
 
     <TextView
         android:id="@+id/btnClear"
         style="@style/ButtonTextView"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:background="@drawable/button"
-        android:text="AC"
-        android:textColor="#000"
-        app:layout_constraintStart_toStartOf="@id/btn0"
-        app:layout_constraintTop_toTopOf="@id/btnBackspace" />
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+    android:background="@drawable/button"
+    android:text="AC"
+    android:textColor="#000"
+    app:layout_constraintStart_toStartOf="@id/btn0"
+    app:layout_constraintTop_toTopOf="@id/btnBackspace" />
 
 </merge>
+
