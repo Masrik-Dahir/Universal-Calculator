@@ -208,21 +208,27 @@ public class BinaryActivity extends AppCompatActivity {
                         }
 
                         if (operation.equals("-")) {
-                            value = value - valueone;
-                            result = value;
                             output.setText(output.getText() + String.valueOf(valueone));
+                            value = Func.binary_to_double(String.valueOf(value));
+                            valueone = Func.binary_to_double(String.valueOf(valueone));
+                            value = value - valueone;
+                            result = Double.parseDouble(Func.toBinary(String.valueOf(value)));
                             input.setText(String.valueOf(result));
                         }
                         if (operation.equals("*")) {
-                            value = value * valueone;
-                            result = value;
                             output.setText(output.getText() + String.valueOf(valueone));
+                            value = Func.binary_to_double(String.valueOf(value));
+                            valueone = Func.binary_to_double(String.valueOf(valueone));
+                            value = value * valueone;
+                            result = Double.parseDouble(Func.toBinary(String.valueOf(value)));
                             input.setText(String.valueOf(result));
                         }
                         if (operation.equals("/")) {
-                            value = value / valueone;
-                            result = value;
                             output.setText(output.getText() + String.valueOf(valueone));
+                            value = Func.binary_to_double(String.valueOf(value));
+                            valueone = Func.binary_to_double(String.valueOf(valueone));
+                            value = value / valueone;
+                            result = Double.parseDouble(Func.toBinary(String.valueOf(value)));
                             input.setText(String.valueOf(result));
                         }
 //                        if (operation.equals("1_s")) {
