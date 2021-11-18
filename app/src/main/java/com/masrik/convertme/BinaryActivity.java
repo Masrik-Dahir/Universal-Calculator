@@ -35,6 +35,7 @@ public class BinaryActivity extends AppCompatActivity {
     Button b_comp1;
     Button b_comp2;
     Button b_adv;
+    Button button_mod;
     char ACTION;
     double val1 = Double.NaN;
     String operation;
@@ -80,6 +81,7 @@ public class BinaryActivity extends AppCompatActivity {
         b_ieee = findViewById(R.id.button_ieee);
         b_comp1 = findViewById(R.id.button_comp1);
         b_comp2 = findViewById(R.id.button_comp2);
+        button_mod = findViewById(R.id.button_mod);
 
 
         b0.setOnClickListener(new View.OnClickListener() {
@@ -160,6 +162,70 @@ public class BinaryActivity extends AppCompatActivity {
             }
         });
 
+
+        b_and.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+                    operation = " & ";
+                    input();
+                }
+            }
+        });
+
+        b_or.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+                    operation = " | ";
+                    input();
+                }
+            }
+        });
+
+        b_xor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+                    operation = " ^ ";
+                    input();
+                }
+            }
+        });
+
+        l_shift.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+                    operation = " << ";
+                    input();
+                }
+            }
+        });
+
+        r_shift.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+                    operation = " >> ";
+                    input();
+                }
+            }
+        });
+
+        button_mod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+                    operation = " % ";
+                    input();
+                }
+            }
+        });
+
+
+
+
         b_comp1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -220,6 +286,44 @@ public class BinaryActivity extends AppCompatActivity {
             }
         });
 
+        b_ieee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+
+                    value = Double.parseDouble(input.getText().toString());
+                    String result_1 = String.valueOf(value);
+                    String news = String.valueOf(Func.binary_to_ieee(result_1));
+                    input.setText(news);
+                    output.setText(String.valueOf(value));
+                }
+
+            }
+        });
+
+        b_not.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                output.setText(input.getText());
+                if (input.getText().length() > 0) {
+                    String a = "";
+                    for (int i = 0; i < input.length(); i++) {
+                        if (input.getText().charAt(i) == '0') {
+                            a += "1";
+                        } else if (input.getText().charAt(i) == '1'){
+                            a += "0";
+                        }
+                        else{
+                            break;
+                        }
+                    }
+                    input.setText(a);
+                } else {
+                    output.setText("Error");
+                }
+            }
+        });
+
 
 
 
@@ -263,10 +367,55 @@ public class BinaryActivity extends AppCompatActivity {
                             result = Double.parseDouble(Func.toBinary(String.valueOf(value)));
                             input.setText(String.valueOf(result));
                         }
-//                        if (operation.equals("1_s")) {
-////                            value = value / valueone;
-//
-//                        }
+                        if (operation.equals(" & ")) {
+                            output.setText(output.getText() + String.valueOf(valueone));
+                            value = Func.binary_to_double(String.valueOf(value));
+                            valueone = Func.binary_to_double(String.valueOf(valueone));
+                            value = (int) value & (int) valueone;
+                            result = Double.parseDouble(Func.toBinary(String.valueOf(value)));
+                            input.setText(String.valueOf(result).replace(".0",""));
+                        }
+                        if (operation.equals(" % ")) {
+                            output.setText(output.getText() + String.valueOf(valueone));
+                            value = Func.binary_to_double(String.valueOf(value));
+                            valueone = Func.binary_to_double(String.valueOf(valueone));
+                            value = value % valueone;
+                            result = Double.parseDouble(Func.toBinary(String.valueOf(value)));
+                            input.setText(String.valueOf(result));
+                        }
+
+                        if (operation.equals(" | ")) {
+                            output.setText(output.getText() + String.valueOf(valueone));
+                            value = Func.binary_to_double(String.valueOf(value));
+                            valueone = Func.binary_to_double(String.valueOf(valueone));
+                            value = (int) value | (int) valueone;
+                            result = Double.parseDouble(Func.toBinary(String.valueOf(value)));
+                            input.setText(String.valueOf(result).replace(".0",""));
+                        }
+                        if (operation.equals(" ^ ")) {
+                            output.setText(output.getText() + String.valueOf(valueone));
+                            value = Func.binary_to_double(String.valueOf(value));
+                            valueone = Func.binary_to_double(String.valueOf(valueone));
+                            value = (int) value ^ (int) valueone;
+                            result = Double.parseDouble(Func.toBinary(String.valueOf(value)));
+                            input.setText(String.valueOf(result).replace(".0",""));
+                        }
+                        if (operation.equals(" >> ")) {
+                            output.setText(output.getText() + String.valueOf(valueone));
+                            value = Func.binary_to_double(String.valueOf(value));
+                            valueone = Func.binary_to_double(String.valueOf(valueone));
+                            value = (int) value >> (int) valueone;
+                            result = Double.parseDouble(Func.toBinary(String.valueOf(value)));
+                            input.setText(String.valueOf(result).replace(".0",""));
+                        }
+                        if (operation.equals(" << ")) {
+                            output.setText(output.getText() + String.valueOf(valueone));
+                            value = Func.binary_to_double(String.valueOf(value));
+                            valueone = Func.binary_to_double(String.valueOf(valueone));
+                            value = (int) value << (int) valueone;
+                            result = Double.parseDouble(Func.toBinary(String.valueOf(value)));
+                            input.setText(String.valueOf(result).replace(".0",""));
+                        }
 
 
                     }
