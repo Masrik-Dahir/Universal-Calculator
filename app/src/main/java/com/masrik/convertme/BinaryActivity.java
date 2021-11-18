@@ -190,6 +190,23 @@ public class BinaryActivity extends AppCompatActivity {
             }
         });
 
+        to_dec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+
+                    value = Double.parseDouble(input.getText().toString());
+                    String result_1 = String.valueOf((int) value);
+                    String news = String.valueOf(Func.binary_to_double(result_1));
+                    input.setText(news);
+                    output.setText(String.valueOf(value));
+                }
+
+            }
+        });
+
+
+
 
         b_equal.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
