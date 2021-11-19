@@ -77,15 +77,15 @@ public class DecimalActivity extends AppCompatActivity {
         b_del = findViewById(R.id.button_del);
 
 
-//        r_shift = findViewById(R.id.button_r_shift);
-//        l_shift = findViewById(R.id.button_l_shift);
-//        to_bin = findViewById(R.id.button_bin);
-//        to_hex = findViewById(R.id.button_hex);
-//        b_not = findViewById(R.id.button_not);
-//        b_and = findViewById(R.id.button_and);
-//        b_or = findViewById(R.id.button_or);
-//        b_xor = findViewById(R.id.button_xor);
-//        b_ieee = findViewById(R.id.button_ieee);
+        r_shift = findViewById(R.id.button_r_shift);
+        l_shift = findViewById(R.id.button_l_shift);
+        to_bin = findViewById(R.id.button_bin);
+        to_hex = findViewById(R.id.button_hex);
+        b_not = findViewById(R.id.button_not);
+        b_and = findViewById(R.id.button_and);
+        b_or = findViewById(R.id.button_or);
+        b_xor = findViewById(R.id.button_xor);
+        b_ieee = findViewById(R.id.button_ieee);
 
 
         b0.setOnClickListener(new View.OnClickListener() {

@@ -81,6 +81,7 @@
     <string name="custom_unit_multiplier_default">1.0</string>
     <string name="left_shift"><![CDATA[<<]]></string>
     <string name="right_shift"><![CDATA[>>]]></string>
+    <string name="left"><![CDATA[<<]]></string>
 
 
 </resources>
