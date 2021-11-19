@@ -426,4 +426,18 @@ public class Func  {
         return Integer.toBinaryString(result); //returns the answer as a binary value;
     }
 
+    public static String remove_decimal(String str){
+        String result = "";
+        for(int i=0; i<str.length();i++){
+            if(str.charAt(i) == '.'){
+                break;
+            }
+            else{
+                result += str.charAt(i);
+            }
+        }
+
+        return result;
+    }
+
 }
