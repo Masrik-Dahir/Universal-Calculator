@@ -64,13 +64,13 @@ public class Scroll extends AppCompatActivity {
 
         });
 
-//        hexadecimal_calculator.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                Intent myIntent = new Intent(view.getContext(), Hexadecimal.class);
-//                startActivityForResult(myIntent, 0);
-//            }
-//
-//        });
+        hexadecimal_calculator.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent myIntent = new Intent(view.getContext(), HexActivity.class);
+                startActivityForResult(myIntent, 0);
+            }
+
+        });
 
         exit.setOnClickListener(new View.OnClickListener() {
 

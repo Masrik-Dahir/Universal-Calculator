@@ -902,6 +902,13 @@ public class Activity2 extends AppCompatActivity {
                     combination.setVisibility(View.GONE);
                     todegree.setVisibility(View.GONE);
                     toradian.setVisibility(View.GONE);
+                    permutation.setVisibility(View.GONE);
+                    combination.setVisibility(View.GONE);
+                    pie.setVisibility(View.GONE);
+                    euler.setVisibility(View.GONE);
+                    apery.setVisibility(View.GONE);
+                    logn.setVisibility(View.GONE);
+
                 } else {
                     sin.setVisibility(View.VISIBLE);
                     cos.setVisibility(View.VISIBLE);
@@ -927,6 +934,12 @@ public class Activity2 extends AppCompatActivity {
                     combination.setVisibility(View.VISIBLE);
                     todegree.setVisibility(View.VISIBLE);
                     toradian.setVisibility(View.VISIBLE);
+                    permutation.setVisibility(View.VISIBLE);
+                    combination.setVisibility(View.VISIBLE);
+                    pie.setVisibility(View.VISIBLE);
+                    euler.setVisibility(View.VISIBLE);
+                    apery.setVisibility(View.VISIBLE);
+                    logn.setVisibility(View.VISIBLE);
                 }
 
             }

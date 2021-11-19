@@ -37,6 +37,7 @@
         <activity android:name="com.masrik.convertme.ConvertActivity"></activity>
         <activity android:name="com.masrik.convertme.BinaryActivity"></activity>
         <activity android:name="com.masrik.convertme.DecimalActivity"></activity>
+        <activity android:name="com.masrik.convertme.HexActivity"></activity>
 
     </application>
 </manifest>
