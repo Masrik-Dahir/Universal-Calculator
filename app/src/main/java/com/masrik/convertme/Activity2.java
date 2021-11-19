@@ -15,7 +15,8 @@ public class Activity2 extends AppCompatActivity {
             nine, add, sub, mul, div, mod, equal, clear, del, point,
             sin, cos, tan, log, ln, sqrt, square, pow, hide, factorial,
             nrt, sinh, cosh, tanh, sec, cosec, cot, sech, cosech, coth,
-            toradian, todegree, permutation, combination, b_para2;
+            toradian, todegree, permutation, combination, b_para2, pie,
+            euler, apery, logn;
     String operation;
     double value, valueone, result;
     int subs = 1;
@@ -81,11 +82,52 @@ public class Activity2 extends AppCompatActivity {
         combination = findViewById(R.id.combination);
         b_para2 = findViewById(R.id.button_para2);
 
+        pie = findViewById(R.id.constant_pie);
+        euler = findViewById(R.id.constant_e);
+        apery = findViewById(R.id.apery);
+        logn = findViewById(R.id.logn);
+
 
         b_para2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 negative = true;
+            }
+        });
+
+        pie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (negative == false) {
+                    input.setText(input.getText() + "3.1416");
+                } else {
+                    input.setText(input.getText() + "-3.1416");
+                    negative = false;
+                }
+            }
+        });
+
+        euler.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (negative == false) {
+                    input.setText(input.getText() + "2.71828");
+                } else {
+                    input.setText(input.getText() + "-2.71828");
+                    negative = false;
+                }
+            }
+        });
+
+        apery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (negative == false) {
+                    input.setText(input.getText() + "1.20205");
+                } else {
+                    input.setText(input.getText() + "-1.20205");
+                    negative = false;
+                }
             }
         });
 
@@ -114,6 +156,8 @@ public class Activity2 extends AppCompatActivity {
                 }
             }
         });
+
+
 
         two.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -243,6 +287,16 @@ public class Activity2 extends AppCompatActivity {
             }
         });
 
+        logn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+                    operation = " logn ";
+                    input();
+                }
+            }
+        });
+
         mul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -302,6 +356,7 @@ public class Activity2 extends AppCompatActivity {
                 }
             }
         });
+
 
         sin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -629,6 +684,15 @@ public class Activity2 extends AppCompatActivity {
                             output.setText(output.getText() + String.valueOf(valueone));
                             input.setText(String.valueOf(result));
                         }
+
+                        if (operation.equals(" logn ")) {
+                            double asd = value;
+                            value = Math.log(valueone) / Math.log(value);
+                            result = value;
+                            output.setText("Log(" + asd + ")(" + valueone+") =");
+                            input.setText(String.valueOf(result));
+                        }
+
                         if (operation.equals(" (P) ")) {
                             value = Func.permutation(value, valueone);
                             result = value;
@@ -677,6 +741,9 @@ public class Activity2 extends AppCompatActivity {
                             output.setText("Sin(" + valueone + ")=");
                             input.setText(String.valueOf(result));
                         }
+
+
+
                         if (operation.equals("cos")) {
                             value = Math.cos(valueone);
                             result = value;
