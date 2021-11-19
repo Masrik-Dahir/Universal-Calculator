@@ -16,13 +16,13 @@
 
         <Button
             android:id="@+id/button_bin"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/arithmatic_button"
             android:fontFamily="sans-serif-medium"
             android:text="BIN"
             android:textColor="#000"
-            android:textSize="20sp"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.86"
@@ -32,13 +32,13 @@
 
         <Button
             android:id="@+id/button_hex"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/arithmatic_button"
             android:fontFamily="sans-serif-medium"
             android:text="HEX"
             android:textColor="#000"
-            android:textSize="20sp"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.86"
@@ -48,13 +48,13 @@
 
         <Button
             android:id="@+id/button_ieee"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/arithmatic_button"
             android:fontFamily="sans-serif-medium"
             android:text="IEEE"
             android:textColor="#000"
-            android:textSize="20sp"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.976"
@@ -64,8 +64,8 @@
 
         <Button
             android:id="@+id/button_adv"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/ic_settings_white_24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -78,8 +78,8 @@
 
         <Button
             android:id="@+id/button1"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/circle_button"
             android:fontFamily="sans-serif-medium"
             android:text="1"
@@ -94,8 +94,8 @@
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/circle_button"
             android:fontFamily="sans-serif-medium"
             android:text="2"
@@ -110,8 +110,8 @@
 
         <Button
             android:id="@+id/button3"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/circle_button"
             android:fontFamily="sans-serif-medium"
             android:text="3"
@@ -126,8 +126,8 @@
 
         <Button
             android:id="@+id/button4"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/circle_button"
             android:fontFamily="sans-serif-medium"
             android:text="4"
@@ -142,8 +142,8 @@
 
         <Button
             android:id="@+id/button5"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/circle_button"
             android:fontFamily="sans-serif-medium"
             android:text="5"
@@ -158,8 +158,8 @@
 
         <Button
             android:id="@+id/button6"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/circle_button"
             android:fontFamily="sans-serif-medium"
             android:text="6"
@@ -174,8 +174,8 @@
 
         <Button
             android:id="@+id/button7"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/circle_button"
             android:fontFamily="sans-serif-medium"
             android:text="7"
@@ -190,8 +190,8 @@
 
         <Button
             android:id="@+id/button8"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/circle_button"
             android:fontFamily="sans-serif-medium"
             android:text="8"
@@ -206,8 +206,8 @@
 
         <Button
             android:id="@+id/button9"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/circle_button"
             android:fontFamily="sans-serif-medium"
             android:text="9"
@@ -222,8 +222,8 @@
 
         <Button
             android:id="@+id/button0"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/new_but"
             android:fontFamily="sans-serif-medium"
             android:paddingRight="0sp"
@@ -239,8 +239,8 @@
 
         <Button
             android:id="@+id/button_equal"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/arithmatic_button"
             android:fontFamily="sans-serif-medium"
             android:text="="
@@ -255,8 +255,8 @@
 
         <Button
             android:id="@+id/button_xor"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/arithmatic_button"
             android:fontFamily="sans-serif-medium"
             android:text="⊕"
@@ -271,8 +271,8 @@
 
         <Button
             android:id="@+id/button_not"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/arithmatic_button"
             android:fontFamily="sans-serif-medium"
             android:text=" ~ "
@@ -287,8 +287,8 @@
 
         <Button
             android:id="@+id/l_shift"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/arithmatic_button"
             android:fontFamily="sans-serif-medium"
             android:text="@string/left"
@@ -303,8 +303,8 @@
 
         <Button
             android:id="@+id/button_or"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/arithmatic_button"
             android:fontFamily="sans-serif-medium"
             android:text=" | "
@@ -319,8 +319,8 @@
 
         <Button
             android:id="@+id/button_and"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/arithmatic_button"
             android:fontFamily="sans-serif-medium"
             android:text=" &amp; "
@@ -335,13 +335,13 @@
 
         <Button
             android:id="@+id/button_clear"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/button"
             android:fontFamily="sans-serif-medium"
             android:text="AC"
             android:textColor="#060606"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.044"
@@ -351,13 +351,13 @@
 
         <Button
             android:id="@+id/button_del"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/button"
             android:fontFamily="sans-serif-medium"
             android:text="DEL"
             android:textColor="#060606"
-            android:textSize="25sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.165"
@@ -367,8 +367,8 @@
 
         <Button
             android:id="@+id/r_shift"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/arithmatic_button"
             android:fontFamily="sans-serif-medium"
             android:text=" >> "
@@ -383,8 +383,8 @@
 
         <Button
             android:id="@+id/button_para2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/button"
             android:fontFamily="sans-serif-medium"
             android:text="+/-"
@@ -399,8 +399,8 @@
 
         <Button
             android:id="@+id/button_dot"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:background="@drawable/circle_button"
             android:fontFamily="sans-serif-medium"
             android:text="."
