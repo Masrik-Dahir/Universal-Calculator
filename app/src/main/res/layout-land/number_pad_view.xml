@@ -151,7 +151,8 @@
         android:layout_height="40dp"
     android:layout_marginTop="16dp"
     android:background="@drawable/button"
-    android:text="@string/str_pad_back"
+    android:text="DEL"
+        android:textSize="15dp"
     android:textColor="#000"
     app:layout_constraintStart_toStartOf="@id/btnNegative"
     app:layout_constraintTop_toBottomOf="@id/btnNegative" />
@@ -161,11 +162,16 @@
         style="@style/ButtonTextView"
         android:layout_width="40dp"
         android:layout_height="40dp"
-    android:background="@drawable/button"
-    android:text="AC"
-    android:textColor="#000"
-    app:layout_constraintStart_toStartOf="@id/btn0"
-    app:layout_constraintTop_toTopOf="@id/btnBackspace" />
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
+        android:background="@drawable/button"
+        android:text="AC"
+        android:textColor="#000"
+        app:layout_constraintStart_toStartOf="@id/btn0"
+        app:layout_constraintTop_toTopOf="@id/btnBackspace" />
+
+
+
 
 </merge>
 
