@@ -35,12 +35,13 @@ public class HexActivity extends AppCompatActivity {
     Button b_xor;
     Button b_del;
     Button b_clear;
-    Button b_dot, ba, bb, bc, bd, be, bf;
+    Button b_dot, ba, bb, bc, bd, be, bf, button_add, button_sub, button_mul, button_div, button_mod;
     Button b_adv;
     char ACTION;
     double val1 = Double.NaN;
     String operation;
-    double value, valueone, result;
+    String value, valueone;
+    double result;
     int subs = 1;
     boolean negative = false;
     private double val2;
@@ -89,6 +90,11 @@ public class HexActivity extends AppCompatActivity {
         b_and = findViewById(R.id.button_and);
         b_or = findViewById(R.id.button_or);
         b_xor = findViewById(R.id.button_xor);
+        button_add = findViewById(R.id.button_add);
+        button_sub = findViewById(R.id.button_sub);
+        button_mul = findViewById(R.id.button_mul);
+        button_div = findViewById(R.id.button_div);
+        button_mod = findViewById(R.id.button_mod);
 
 
         b0.setOnClickListener(new View.OnClickListener() {
@@ -212,6 +218,128 @@ public class HexActivity extends AppCompatActivity {
             }
         });
 
+        ba.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (negative == false) {
+                    input.setText(input.getText() + "A");
+                } else {
+                    input.setText(input.getText() + "-A");
+                    negative = false;
+                }
+            }
+        });
+
+        bb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (negative == false) {
+                    input.setText(input.getText() + "B");
+                } else {
+                    input.setText(input.getText() + "-B");
+                    negative = false;
+                }
+            }
+        });
+        bc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (negative == false) {
+                    input.setText(input.getText() + "C");
+                } else {
+                    input.setText(input.getText() + "-C");
+                    negative = false;
+                }
+            }
+        });
+
+        bd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (negative == false) {
+                    input.setText(input.getText() + "D");
+                } else {
+                    input.setText(input.getText() + "-D");
+                    negative = false;
+                }
+            }
+        });
+
+        be.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (negative == false) {
+                    input.setText(input.getText() + "E");
+                } else {
+                    input.setText(input.getText() + "-E");
+                    negative = false;
+                }
+            }
+        });
+
+        bf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (negative == false) {
+                    input.setText(input.getText() + "F");
+                } else {
+                    input.setText(input.getText() + "-F");
+                    negative = false;
+                }
+            }
+        });
+
+        button_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+                    operation = "+";
+                    input();
+                }
+            }
+        });
+
+        button_sub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+                    operation = "-";
+                    input();
+                }
+            }
+        });
+
+        button_mul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+                    operation = "*";
+                    input();
+                }
+            }
+        });
+
+        button_div.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+                    operation = "/";
+                    input();
+                }
+            }
+        });
+
+        button_mod.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!input.getText().equals("")) {
+                    operation = "%";
+                    input();
+                }
+            }
+        });
+
+
         b_dot.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -281,10 +409,11 @@ public class HexActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
+                String val = input.getText().toString();
                 if (!input.getText().equals("")) {
                     String news = Func.hex_to_binary(input.getText().toString());
+                    output.setText(val);
                     input.setText(news);
-                    output.setText(String.valueOf(value));
                 }
 
             }
@@ -294,21 +423,22 @@ public class HexActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
+                String val = input.getText().toString();
                 if (!input.getText().equals("")) {
                     String news = String.valueOf(Func.hex_to_double(input.getText().toString()));
+                    output.setText(val);
                     input.setText(news);
-                    output.setText(String.valueOf(value));
                 }
 
             }
         });
-//
+
         b_not.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
-                String toBinary = Func.toBinary(input.getText().toString());
+                String toBinary = Func.hex_to_binary(input.getText().toString());
                 output.setText("~ "+Func.remove_decimal(input.getText().toString()));
                 if (toBinary.length() > 0) {
                     String a = "";
@@ -322,7 +452,7 @@ public class HexActivity extends AppCompatActivity {
                             break;
                         }
                     }
-                    input.setText(String.valueOf(Func.binary_to_double(a)));
+                    input.setText(Func.binary_to_hex(a));
                 } else {
                     output.setText("Error");
                 }
@@ -338,47 +468,92 @@ public class HexActivity extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     if (!(output.getText().equals("") && input.getText().equals(""))) {
-                        valueone = Double.parseDouble(input.getText().toString());
+                        valueone = input.getText().toString();
 
                         if (operation.equals(" & ")) {
                             output.setText(output.getText() + String.valueOf(valueone));
-                            value = Func.hex_to_double(String.valueOf(value));
-                            valueone = Func.hex_to_double(String.valueOf(valueone));
-                            value = (int) value & (int) valueone;
-                            String result = Func.double_to_hex(String.valueOf(value));
-                            input.setText(result);
+                            value = String.valueOf(Func.hex_to_double(String.valueOf(value)));
+                            valueone = String.valueOf(Func.hex_to_double(String.valueOf(valueone)));
+                            value = String.valueOf((int) Double.parseDouble(value) & (int) Double.parseDouble(valueone));
+                            String result = Func.double_to_hex(value);
+                            input.setText(result.replace(".0",""));
                         }
 
                         if (operation.equals(" | ")) {
                             output.setText(output.getText() + String.valueOf(valueone));
-                            value = Func.hex_to_double(String.valueOf(value));
-                            valueone = Func.hex_to_double(String.valueOf(valueone));
-                            value = (int) value | (int) valueone;
-                            String result = Func.double_to_hex(String.valueOf(value));
-                            input.setText(result);
+                            value = String.valueOf(Func.hex_to_double(String.valueOf(value)));
+                            valueone = String.valueOf(Func.hex_to_double(String.valueOf(valueone)));
+                            value = String.valueOf((int) Double.parseDouble(value) | (int) Double.parseDouble(valueone));
+                            String result = Func.double_to_hex(value);
+                            input.setText(result.replace(".0",""));
                         }
                         if (operation.equals(" ^ ")) {
                             output.setText(output.getText() + String.valueOf(valueone));
-                            value = Func.hex_to_double(String.valueOf(value));
-                            valueone = Func.hex_to_double(String.valueOf(valueone));
-                            value = (int) value ^ (int) valueone;
-                            String result = Func.double_to_hex(String.valueOf(value));
-                            input.setText(result);
+                            value = String.valueOf(Func.hex_to_double(String.valueOf(value)));
+                            valueone = String.valueOf(Func.hex_to_double(String.valueOf(valueone)));
+                            value = String.valueOf((int) Double.parseDouble(value) ^ (int) Double.parseDouble(valueone));
+                            String result = Func.double_to_hex(value);
+                            input.setText(result.replace(".0",""));
                         }
                         if (operation.equals(" >> ")) {
                             output.setText(output.getText() + String.valueOf(valueone));
-                            value = Func.hex_to_double(String.valueOf(value));
-                            valueone = Func.hex_to_double(String.valueOf(valueone));
-                            value = (int) value >> (int) valueone;
-                            String result = Func.double_to_hex(String.valueOf(value));
-                            input.setText(result);
+                            value = String.valueOf(Func.hex_to_double(String.valueOf(value)));
+                            valueone = String.valueOf(Func.hex_to_double(String.valueOf(valueone)));
+                            value = String.valueOf((int) Double.parseDouble(value) >> (int) Double.parseDouble(valueone));
+                            String result = Func.double_to_hex(value);
+                            input.setText(result.replace(".0",""));
                         }
                         if (operation.equals(" << ")) {
                             output.setText(output.getText() + String.valueOf(valueone));
-                            value = Func.hex_to_double(String.valueOf(value));
-                            valueone = Func.hex_to_double(String.valueOf(valueone));
-                            value = (int) value << (int) valueone;
-                            String result = Func.double_to_hex(String.valueOf(value));
+                            value = String.valueOf(Func.hex_to_double(String.valueOf(value)));
+                            valueone = String.valueOf(Func.hex_to_double(String.valueOf(valueone)));
+                            value = String.valueOf((int) Double.parseDouble(value) << (int) Double.parseDouble(valueone));
+                            String result = Func.double_to_hex(value);
+                            input.setText(value.replace(".0",""));
+                        }
+                        if (operation.equals("+")) {
+                            String val = valueone;
+                            output.setText(output.getText() + String.valueOf(valueone));
+                            value = String.valueOf(Func.hex_to_double(String.valueOf(value)));
+                            valueone = String.valueOf(Func.hex_to_double(String.valueOf(valueone)));
+                            value = String.valueOf(Double.parseDouble(value) + Double.parseDouble(valueone));
+                            String result = Func.double_to_hex(value);
+                            input.setText(result);
+                        }
+                        if (operation.equals("-")) {
+                            String val = valueone;
+                            output.setText(output.getText() + String.valueOf(valueone));
+                            value = String.valueOf(Func.hex_to_double(String.valueOf(value)));
+                            valueone = String.valueOf(Func.hex_to_double(String.valueOf(valueone)));
+                            value = String.valueOf(Double.parseDouble(value) - Double.parseDouble(valueone));
+                            String result = Func.double_to_hex(value);
+                            input.setText(result);
+                        }
+                        if (operation.equals("*")) {
+                            String val = valueone;
+                            output.setText(output.getText() + String.valueOf(valueone));
+                            value = String.valueOf(Func.hex_to_double(String.valueOf(value)));
+                            valueone = String.valueOf(Func.hex_to_double(String.valueOf(valueone)));
+                            value = String.valueOf(Double.parseDouble(value) * Double.parseDouble(valueone));
+                            String result = Func.double_to_hex(value);
+                            input.setText(result);
+                        }
+                        if (operation.equals("/")) {
+                            String val = valueone;
+                            output.setText(output.getText() + String.valueOf(valueone));
+                            value = String.valueOf(Func.hex_to_double(String.valueOf(value)));
+                            valueone = String.valueOf(Func.hex_to_double(String.valueOf(valueone)));
+                            value = String.valueOf(Double.parseDouble(value) / Double.parseDouble(valueone));
+                            String result = Func.double_to_hex(value);
+                            input.setText(result);
+                        }
+                        if (operation.equals("%")) {
+                            String val = valueone;
+                            output.setText(output.getText() + String.valueOf(valueone));
+                            value = String.valueOf(Func.hex_to_double(String.valueOf(value)));
+                            valueone = String.valueOf(Func.hex_to_double(String.valueOf(valueone)));
+                            value = String.valueOf(Double.parseDouble(value) % Double.parseDouble(valueone));
+                            String result = Func.double_to_hex(value);
                             input.setText(result);
                         }
 
@@ -393,8 +568,8 @@ public class HexActivity extends AppCompatActivity {
         b_clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                value = 0;
-                valueone = 0;
+                value = "0";
+                valueone = "0";
                 result = 0;
                 input.setText("");
                 output.setText("");
@@ -408,8 +583,8 @@ public class HexActivity extends AppCompatActivity {
                     CharSequence name = input.getText().toString();
                     input.setText(name.subSequence(0, name.length() - 1));
                 } else {
-                    value = Double.NaN;
-                    valueone = Double.NaN;
+                    value = "";
+                    valueone = "";
                     input.setText("");
                     output.setText("");
                 }
@@ -430,7 +605,7 @@ public class HexActivity extends AppCompatActivity {
     }
 
     void input() {
-        value = Double.parseDouble(input.getText().toString());
+        value = input.getText().toString();
         input.setText("");
         output.setText(value + operation);
     }

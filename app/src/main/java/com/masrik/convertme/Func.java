@@ -257,12 +257,12 @@ public class Func  {
         return ieee;
     }
 
-    public static String hex_to_binary(String hex) {
+    public static String hex_to_binary(String hex){
         hex = hex.toUpperCase();
         String result = "";
-        for (int index = 0; index < hex.length(); index++) {
+        for (int index = 0; index < hex.length(); index++){
             String value = "";
-            switch (hex.charAt(index)) {
+            switch (hex.charAt(index)){
                 case 'A':
                     value = Hex.A.value;
                     break;
@@ -317,7 +317,7 @@ public class Func  {
             }
             result += value;
         }
-        return clean(result);
+        return result;
     }
 
     public static double hex_to_double(String hexa) {
@@ -381,16 +381,21 @@ public class Func  {
         return hex;
     }
 
-    public static String clean(String bin) {
-        if (!bin.contains(".")) {
+    public static String clean(String bin){
+        if (!bin.contains(".")){
             bin = bin + ".0";
         }
 
-        if (bin.startsWith("0")) {
-            bin = bin.substring(1);
+        if (bin.endsWith(".")){
+            bin = bin.replace(".","");
+        }
+
+        if (bin.startsWith("0")){
+            bin = bin.substring(1,bin.length());
             return clean(bin);
-        } else if (bin.endsWith("0")) {
-            bin = bin.substring(0, bin.length() - 1);
+        }
+        else if (bin.endsWith("0")){
+            bin = bin.substring(0,bin.length()-1);
             return clean(bin);
         }
         return bin;
