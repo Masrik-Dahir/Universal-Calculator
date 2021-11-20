@@ -59,7 +59,7 @@ public class HexActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hex);
 
-        setTitle("Decimal Calculator");
+        setTitle("Hexadecimal Calculator");
         output = findViewById(R.id.output);
         input = findViewById(R.id.input);
         b0 = findViewById(R.id.button0);
