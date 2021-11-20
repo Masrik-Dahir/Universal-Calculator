@@ -280,6 +280,9 @@ public class BasicCalculator extends AppCompatActivity {
                         }
                         if (operation.equals("%")) {
                             value = value % valueone;
+                            if (String.valueOf(value).startsWith("-")){
+                                value =valueone + value;
+                            }
                             result = value;
                             output.setText(output.getText() + String.valueOf(valueone));
                             input.setText(String.valueOf(result));

@@ -259,6 +259,12 @@ public class Func  {
 
     public static String hex_to_binary(String hex){
         hex = hex.toUpperCase();
+
+        boolean l_neg = false;
+        if (hex.startsWith("-")){
+            l_neg = true;
+        }
+
         String result = "";
         for (int index = 0; index < hex.length(); index++){
             String value = "";

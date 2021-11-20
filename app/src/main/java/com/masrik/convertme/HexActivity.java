@@ -35,7 +35,7 @@ public class HexActivity extends AppCompatActivity {
     Button b_xor;
     Button b_del;
     Button b_clear;
-    Button b_dot, ba, bb, bc, bd, be, bf, button_add, button_sub, button_mul, button_div, button_mod;
+    Button b_dot, ba, bb, bc, bd, be, bf, button_add, button_sub, button_mul, button_div, button_mod, button_para2;
     Button b_adv;
     char ACTION;
     double val1 = Double.NaN;
@@ -95,7 +95,15 @@ public class HexActivity extends AppCompatActivity {
         button_mul = findViewById(R.id.button_mul);
         button_div = findViewById(R.id.button_div);
         button_mod = findViewById(R.id.button_mod);
+        button_para2 = findViewById(R.id.button_para2);
 
+        button_para2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                negative = true;
+
+            }
+        });
 
         b0.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -463,6 +471,7 @@ public class HexActivity extends AppCompatActivity {
 
 
         b_equal.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
@@ -512,48 +521,143 @@ public class HexActivity extends AppCompatActivity {
                             input.setText(value.replace(".0",""));
                         }
                         if (operation.equals("+")) {
-                            String val = valueone;
                             output.setText(output.getText() + String.valueOf(valueone));
-                            value = String.valueOf(Func.hex_to_double(String.valueOf(value)));
-                            valueone = String.valueOf(Func.hex_to_double(String.valueOf(valueone)));
-                            value = String.valueOf(Double.parseDouble(value) + Double.parseDouble(valueone));
-                            String result = Func.double_to_hex(value);
+                            boolean l_neg = false;
+                            if (value.startsWith("-")){
+                                l_neg = true;
+                            }
+
+                            value = String.valueOf(Func.hex_to_double(value));
+                            valueone = String.valueOf(Func.hex_to_double(valueone));
+
+                            if (l_neg == true){
+                                value = String.valueOf(Double.parseDouble(value)*(-1) + Double.parseDouble(valueone));
+                                l_neg = false;
+                            }
+                            else{
+                                value = String.valueOf(Double.parseDouble(value) + Double.parseDouble(valueone));
+
+                            }
+                            String result = "";
+                            if (value.contains("-")){
+                                value = value.replace("-","");
+                                result = "-"+Func.double_to_hex(value);
+                            }else{
+                                result = Func.double_to_hex(value);
+                            }
+
                             input.setText(result);
                         }
                         if (operation.equals("-")) {
-                            String val = valueone;
                             output.setText(output.getText() + String.valueOf(valueone));
-                            value = String.valueOf(Func.hex_to_double(String.valueOf(value)));
-                            valueone = String.valueOf(Func.hex_to_double(String.valueOf(valueone)));
-                            value = String.valueOf(Double.parseDouble(value) - Double.parseDouble(valueone));
-                            String result = Func.double_to_hex(value);
+                            boolean l_neg = false;
+                            if (value.startsWith("-")){
+                                l_neg = true;
+                            }
+
+                            value = String.valueOf(Func.hex_to_double(value));
+                            valueone = String.valueOf(Func.hex_to_double(valueone));
+
+                            if (l_neg == true){
+                                value = String.valueOf(Double.parseDouble(value)*(-1) - Double.parseDouble(valueone));
+                                l_neg = false;
+                            }
+                            else{
+                                value = String.valueOf(Double.parseDouble(value) - Double.parseDouble(valueone));
+
+                            }
+                            String result = "";
+                            if (value.contains("-")){
+                                value = value.replace("-","");
+                                result = "-"+Func.double_to_hex(value);
+                            }else{
+                                result = Func.double_to_hex(value);
+                            }
+
                             input.setText(result);
                         }
                         if (operation.equals("*")) {
-                            String val = valueone;
                             output.setText(output.getText() + String.valueOf(valueone));
-                            value = String.valueOf(Func.hex_to_double(String.valueOf(value)));
-                            valueone = String.valueOf(Func.hex_to_double(String.valueOf(valueone)));
-                            value = String.valueOf(Double.parseDouble(value) * Double.parseDouble(valueone));
-                            String result = Func.double_to_hex(value);
+                            boolean l_neg = false;
+                            if (value.startsWith("-")){
+                                l_neg = true;
+                            }
+
+                            value = String.valueOf(Func.hex_to_double(value));
+                            valueone = String.valueOf(Func.hex_to_double(valueone));
+
+                            if (l_neg == true){
+                                value = String.valueOf(Double.parseDouble(value)*(-1) * Double.parseDouble(valueone));
+                                l_neg = false;
+                            }
+                            else{
+                                value = String.valueOf(Double.parseDouble(value) * Double.parseDouble(valueone));
+
+                            }
+                            String result = "";
+                            if (value.contains("-")){
+                                value = value.replace("-","");
+                                result = "-"+Func.double_to_hex(value);
+                            }else{
+                                result = Func.double_to_hex(value);
+                            }
+
                             input.setText(result);
                         }
                         if (operation.equals("/")) {
-                            String val = valueone;
                             output.setText(output.getText() + String.valueOf(valueone));
-                            value = String.valueOf(Func.hex_to_double(String.valueOf(value)));
-                            valueone = String.valueOf(Func.hex_to_double(String.valueOf(valueone)));
-                            value = String.valueOf(Double.parseDouble(value) / Double.parseDouble(valueone));
-                            String result = Func.double_to_hex(value);
+                            boolean l_neg = false;
+                            if (value.startsWith("-")){
+                                l_neg = true;
+                            }
+
+                            value = String.valueOf(Func.hex_to_double(value));
+                            valueone = String.valueOf(Func.hex_to_double(valueone));
+
+                            if (l_neg == true){
+                                value = String.valueOf((Double.parseDouble(value)*(-1)) / Double.parseDouble(valueone));
+                                l_neg = false;
+                            }
+                            else{
+                                value = String.valueOf(Double.parseDouble(value) / Double.parseDouble(valueone));
+
+                            }
+                            String result = "";
+                            if (value.contains("-")){
+                                value = value.replace("-","");
+                                result = "-"+Func.double_to_hex(value);
+                            }else{
+                                result = Func.double_to_hex(value);
+                            }
+
                             input.setText(result);
                         }
                         if (operation.equals("%")) {
-                            String val = valueone;
                             output.setText(output.getText() + String.valueOf(valueone));
-                            value = String.valueOf(Func.hex_to_double(String.valueOf(value)));
-                            valueone = String.valueOf(Func.hex_to_double(String.valueOf(valueone)));
-                            value = String.valueOf(Double.parseDouble(value) % Double.parseDouble(valueone));
-                            String result = Func.double_to_hex(value);
+                            boolean l_neg = false;
+                            if (value.startsWith("-")){
+                                l_neg = true;
+                            }
+
+                            value = String.valueOf(Func.hex_to_double(value));
+                            valueone = String.valueOf(Func.hex_to_double(valueone));
+
+                            if (l_neg == true){
+                                value = String.valueOf(Double.parseDouble(valueone)-(Double.parseDouble(value) % Double.parseDouble(valueone)));
+                                l_neg = false;
+                            }
+                            else{
+                                value = String.valueOf(Double.parseDouble(value) % Double.parseDouble(valueone));
+
+                            }
+                            String result = "";
+                            if (value.contains("-")){
+                                value = value.replace("-","");
+                                result = "-"+Func.double_to_hex(value);
+                            }else{
+                                result = Func.double_to_hex(value);
+                            }
+
                             input.setText(result);
                         }
 
