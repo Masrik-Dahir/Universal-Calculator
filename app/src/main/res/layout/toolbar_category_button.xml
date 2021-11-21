@@ -1,3 +1,5 @@
+<!--Copyright, Masrik Dahir, 2021-->
+
 <RelativeLayout
     android:id="@+id/category_toolbar_container"
     android:clickable="true"

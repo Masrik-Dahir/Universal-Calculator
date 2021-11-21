@@ -1,3 +1,7 @@
+/*
+ * Copyright, Masrik Dahir, 2021
+ */
+
 package com.masrik.convertme
 
 import android.app.PendingIntent

@@ -1,5 +1,9 @@
 package com.masrik.convertme
 
+/*
+ * Copyright, Masrik Dahir, 2021
+ */
+
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
