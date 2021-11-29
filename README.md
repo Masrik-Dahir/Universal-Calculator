@@ -1,4 +1,5 @@
 # Universal Calculator
+[![Android CI](https://github.com/Masrik-Dahir/universal-calculator/actions/workflows/android.yml/badge.svg?branch=master)](https://github.com/Masrik-Dahir/universal-calculator/actions/workflows/android.yml)
 1. Basic Calculator, 
 2. Scientirfic Calculator, 
 3. Unit COnverter,
